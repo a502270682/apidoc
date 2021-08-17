@@ -424,6 +424,7 @@ definitions:
       example-1:
         transit_id: string
         order_id: string
+        tracking_number: string
         order_created_date: -9223372036854776000
         order_paid_date: -9223372036854776000
         order_currency: string
@@ -464,6 +465,9 @@ definitions:
       order_id:
         type: string
         description: The order ID of the parcel
+      tracking_number:
+        type: string
+        description: The tracking number of the parcel
       parcel_description:
         type: string
       order_created_date:
@@ -506,6 +510,7 @@ definitions:
     required:
       - transit_id
       - order_id
+      - tracking_number
       - order_created_date
       - order_paid_date
       - order_currency
@@ -519,6 +524,9 @@ definitions:
     properties:
       policy:
         $ref: '#/definitions/Policy'
+      url:
+        type: string
+        description: Use a browser or webview to open the URL and enter the igloo claim web portal to submit claim
   Claim:
     type: object
     properties:
