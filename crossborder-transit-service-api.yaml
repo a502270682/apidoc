@@ -1,0 +1,2566 @@
+basePath: /
+consumes:
+  - application/json
+definitions:
+  AdminGetShopRequest:
+    properties:
+      download_type:
+        type: string
+        x-go-name: DownloadType
+      filter:
+        properties:
+          emails:
+            items:
+              type: string
+            type: array
+            x-go-name: Emails
+          exit_date_end:
+            $ref: '#/definitions/Date'
+          exit_date_start:
+            $ref: '#/definitions/Date'
+          plan:
+            items:
+              $ref: '#/definitions/Plan'
+            type: array
+            x-go-name: Plan
+          region:
+            items:
+              $ref: '#/definitions/Country'
+            type: array
+            x-go-name: Region
+          register_date_end:
+            $ref: '#/definitions/Date'
+          register_date_start:
+            $ref: '#/definitions/Date'
+          status:
+            items:
+              $ref: '#/definitions/ShopStatus'
+            type: array
+            x-go-name: Status
+        type: object
+        x-go-name: Filter
+      page:
+        $ref: '#/definitions/Page'
+      search:
+        type: string
+        x-go-name: Search
+      select_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: SelectIDs
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  AdminGetShopResponse:
+    properties:
+      page:
+        $ref: '#/definitions/PageInfo'
+      shops:
+        items:
+          $ref: '#/definitions/AdminGetShopResponseRow'
+        type: array
+        x-go-name: Shops
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  AdminGetShopResponseRow:
+    properties:
+      company_name:
+        type: string
+        x-go-name: CompanyName
+      email:
+        type: string
+        x-go-name: Email
+      exit_date:
+        $ref: '#/definitions/Date'
+      premium_rate:
+        type: string
+        x-go-name: PremiumRate
+      protection_plan:
+        $ref: '#/definitions/Plan'
+      qq:
+        type: string
+        x-go-name: QQ
+      red_point:
+        type: boolean
+        x-go-name: RedPoint
+      region:
+        type: string
+        x-go-name: Region
+      register_date:
+        $ref: '#/definitions/Date'
+      shop_id:
+        type: string
+        x-go-name: ShopID
+      shop_link:
+        type: string
+        x-go-name: ShopLink
+      shop_name:
+        type: string
+        x-go-name: ShopName
+      status:
+        $ref: '#/definitions/ShopStatus'
+      wechat:
+        type: string
+        x-go-name: Wechat
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  Amount:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  Cent:
+    format: int64
+    type: integer
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/lib/amount
+  CheckShopRegisterRequest:
+    properties:
+      email:
+        type: string
+        x-go-name: Email
+      shop_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: ShopIDs
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  CheckShopRegisterResponse:
+    $ref: '#/definitions/ShopRegisterResponse'
+  ClaimReason:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ClaimStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  Country:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/vo
+  CreateRefundFileForLianLianRequest:
+    properties:
+      before:
+        format: int64
+        type: integer
+        x-go-name: Before
+      emails:
+        type: string
+        x-go-name: Emails
+      invoice_status:
+        type: string
+        x-go-name: InvoiceStatus
+      since:
+        format: int64
+        type: integer
+        x-go-name: Since
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  CreateRefundFileForLianLianResponse:
+    properties:
+      url_file:
+        type: string
+        x-go-name: FileURL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  CreateTaskRequest:
+    properties:
+      rejoin:
+        properties:
+          plan:
+            $ref: '#/definitions/Plan'
+        type: object
+        x-go-name: Rejoin
+      shop_id:
+        type: string
+        x-go-name: ShopID
+      type:
+        $ref: '#/definitions/TaskType'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  CreateTaskResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  Currency:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/lib/amount
+  Date:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/vo
+  DownloadInvoicesResponse:
+    properties:
+      link:
+        type: string
+        x-go-name: Link
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  DownloadLianLianRefundFileRequest:
+    properties:
+      invoice_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: InvoiceIDs
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  DownloadLianLianRefundFileResponse:
+    properties:
+      url:
+        type: string
+        x-go-name: URL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  DownloadOrdersTableResponse:
+    properties:
+      link:
+        type: string
+        x-go-name: Link
+      process_id:
+        type: string
+        x-go-name: ProcessID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  DownloadShopsResponse:
+    properties:
+      link:
+        type: string
+        x-go-name: Link
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ExecCronJobRequest:
+    properties:
+      job:
+        enum:
+          - '[shopeexb-expire-policy shopeexb-send-dynamic-pricing-email]'
+        type: string
+        x-go-name: Job
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ExecCronJobResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ExpireInvoicesRequest:
+    properties:
+      before:
+        format: date-time
+        type: string
+        x-go-name: Before
+      invoice_type:
+        $ref: '#/definitions/InvoiceType'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ExpireInvoicesResponse:
+    properties:
+      count:
+        format: int64
+        type: integer
+        x-go-name: Count
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  FillDataToPlaceHolderInvoicesRequest:
+    properties:
+      invoice_type:
+        $ref: '#/definitions/InvoiceType'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetJobProgressResponse:
+    properties:
+      done:
+        format: int64
+        type: integer
+        x-go-name: Done
+      err_file:
+        type: string
+        x-go-name: ErrFile
+      error:
+        format: int64
+        type: integer
+        x-go-name: Error
+      fatal_err:
+        type: string
+        x-go-name: FatalErr
+      skip:
+        format: int64
+        type: integer
+        x-go-name: Skip
+      success:
+        format: int64
+        type: integer
+        x-go-name: Success
+      total:
+        format: int64
+        type: integer
+        x-go-name: Total
+    type: object
+    x-go-name: JobProgress
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/adapter
+  GetPaymentAmountResponse:
+    properties:
+      amount:
+        type: string
+        x-go-name: Amount
+      amount_cny:
+        type: string
+        x-go-name: AmountCNY
+      amount_usd:
+        type: string
+        x-go-name: AmountUSD
+      ceiled:
+        type: boolean
+        x-go-name: Ceiled
+      ori_amount_usd:
+        type: string
+        x-go-name: OriAmountUSD
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetPaymentWaysResponse:
+    properties:
+      paymentWays:
+        items:
+          $ref: '#/definitions/PaymentWay'
+        type: array
+        x-go-name: PaymentWays
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetPermissionRequest:
+    properties:
+      token:
+        type: string
+        x-go-name: JwtToken
+    type: object
+    x-go-package: github.com/axinan-com/goserver/axservice/account/admin_account/data
+  GetPermissionResponse:
+    properties:
+      permissions:
+        type: object
+        x-go-name: Permissions
+    type: object
+    x-go-package: github.com/axinan-com/goserver/axservice/account/admin_account/data
+  GetPremiumInvoicesResponse:
+    properties:
+      invoices:
+        items:
+          $ref: '#/definitions/PremiumInvoiceView'
+        type: array
+        x-go-name: Invoices
+      page:
+        $ref: '#/definitions/PageInfo'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetReimbursementInvoicesResponse:
+    properties:
+      invoices:
+        items:
+          $ref: '#/definitions/ReimbursementInvoiceView'
+        type: array
+        x-go-name: Invoices
+      page:
+        $ref: '#/definitions/PageInfo'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetShopPlansResponse:
+    properties:
+      Plans:
+        items:
+          $ref: '#/definitions/PremiumRateView'
+        type: array
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetShopsResponse:
+    properties:
+      shops:
+        items:
+          $ref: '#/definitions/ShopView'
+        type: array
+        x-go-name: Shops
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetTasksRequest:
+    properties:
+      filter:
+        properties:
+          country:
+            items:
+              $ref: '#/definitions/Country'
+            type: array
+            x-go-name: Country
+          emails:
+            items:
+              type: string
+            type: array
+            x-go-name: Emails
+          plan:
+            items:
+              $ref: '#/definitions/Plan'
+            type: array
+            x-go-name: Plan
+          request_date_end:
+            $ref: '#/definitions/Date'
+          request_date_start:
+            $ref: '#/definitions/Date'
+          status:
+            items:
+              $ref: '#/definitions/TaskStatus'
+            type: array
+            x-go-name: Status
+          type:
+            items:
+              $ref: '#/definitions/TaskType'
+            type: array
+            x-go-name: Type
+        type: object
+        x-go-name: Filter
+      page:
+        $ref: '#/definitions/Page'
+      search:
+        type: string
+        x-go-name: Search
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  GetTasksResponse:
+    properties:
+      page:
+        $ref: '#/definitions/PageInfo'
+      tasks:
+        items:
+          $ref: '#/definitions/TaskView'
+        type: array
+        x-go-name: Tasks
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  InvoiceStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  InvoiceType:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  LogisticsStatus:
+    format: int64
+    type: integer
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/vo
+  OperateTaskRequest:
+    properties:
+      operation:
+        $ref: '#/definitions/TaskOp'
+      reject_reason:
+        type: string
+        x-go-name: RejectReason
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OperateTaskResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailClaim:
+    properties:
+      claim_amount:
+        $ref: '#/definitions/Amount'
+      claim_amount_cny:
+        $ref: '#/definitions/Amount'
+      claim_amount_usd:
+        $ref: '#/definitions/Amount'
+      claim_date:
+        $ref: '#/definitions/Date'
+      claim_reason:
+        $ref: '#/definitions/ClaimReason'
+      claim_status:
+        $ref: '#/definitions/ClaimStatus'
+      reject_reason:
+        type: string
+        x-go-name: RejectReason
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailCustomer:
+    properties:
+      customer_name:
+        type: string
+        x-go-name: CustomerName
+      customer_phone:
+        type: string
+        x-go-name: CustomerPhone
+      owner_mail:
+        type: string
+        x-go-name: OwnerMail
+      region:
+        type: string
+        x-go-name: Region
+      shop_id:
+        type: string
+        x-go-name: ShopID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailHistoryClaim:
+    properties:
+      claim_amount:
+        $ref: '#/definitions/Amount'
+      claim_amount_cny:
+        $ref: '#/definitions/Amount'
+      claim_amount_usd:
+        $ref: '#/definitions/Amount'
+      claim_date:
+        $ref: '#/definitions/Date'
+      claim_reason:
+        $ref: '#/definitions/ClaimReason'
+      claim_status:
+        $ref: '#/definitions/ClaimStatus'
+      reject_reason:
+        type: string
+        x-go-name: RejectReason
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailItem:
+    properties:
+      item_id:
+        type: string
+        x-go-name: ItemID
+      item_name:
+        type: string
+        x-go-name: ItemName
+      price:
+        $ref: '#/definitions/Amount'
+      price_cny:
+        $ref: '#/definitions/Amount'
+      price_usd:
+        $ref: '#/definitions/Amount'
+      quantity:
+        format: int64
+        type: integer
+        x-go-name: Quantity
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailPolicy:
+    properties:
+      coverage_amount:
+        $ref: '#/definitions/Amount'
+      coverage_amount_cny:
+        $ref: '#/definitions/Amount'
+      coverage_amount_usd:
+        $ref: '#/definitions/Amount'
+      currency:
+        $ref: '#/definitions/Currency'
+      expire_at:
+        $ref: '#/definitions/Date'
+      plan:
+        $ref: '#/definitions/Plan'
+      premium_amount:
+        $ref: '#/definitions/Amount'
+      premium_amount_cny:
+        $ref: '#/definitions/Amount'
+      premium_amount_usd:
+        $ref: '#/definitions/Amount'
+      premium_invoice_id:
+        type: string
+        x-go-name: PremiumInvoiceID
+      status:
+        $ref: '#/definitions/PolicyStatus'
+      valid_from:
+        $ref: '#/definitions/Date'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailReimburse:
+    properties:
+      reimbursement_amount:
+        $ref: '#/definitions/Amount'
+      reimbursement_amount_cny:
+        $ref: '#/definitions/Amount'
+      reimbursement_amount_usd:
+        $ref: '#/definitions/Amount'
+      reimbursement_status:
+        $ref: '#/definitions/ReimbStatus'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailRequest:
+    properties:
+      order_id:
+        type: string
+        x-go-name: OrderID
+      shop_id:
+        type: string
+        x-go-name: ShopID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailResponse:
+    properties:
+      claim:
+        $ref: '#/definitions/OrderDetailClaim'
+      customer:
+        $ref: '#/definitions/OrderDetailCustomer'
+      history_claims:
+        items:
+          $ref: '#/definitions/OrderDetailHistoryClaim'
+        type: array
+        x-go-name: HistoryClaims
+      items:
+        items:
+          $ref: '#/definitions/OrderDetailItem'
+        type: array
+        x-go-name: Items
+      policy:
+        $ref: '#/definitions/OrderDetailPolicy'
+      reimburse:
+        $ref: '#/definitions/OrderDetailReimburse'
+      shipping:
+        $ref: '#/definitions/OrderDetailShipping'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrderDetailShipping:
+    properties:
+      shipping_to:
+        type: string
+        x-go-name: ShippingTo
+      tracking_number:
+        items:
+          type: string
+        type: array
+        x-go-name: TrackingNumbers
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrdersTableRequest:
+    properties:
+      download_type:
+        type: string
+        x-go-name: DownloadType
+      filter:
+        properties:
+          claim_date_end:
+            $ref: '#/definitions/Date'
+          claim_date_start:
+            $ref: '#/definitions/Date'
+          claim_reason:
+            items:
+              $ref: '#/definitions/ClaimReason'
+            type: array
+            x-go-name: ClaimReason
+          claim_status:
+            description: sarch from claim
+            items:
+              $ref: '#/definitions/ClaimStatus'
+            type: array
+            x-go-name: ClaimStatus
+          merchant_email:
+            description: search from shop
+            type: string
+            x-go-name: MerchantEmail
+          order_create_date_end:
+            $ref: '#/definitions/Date'
+          order_create_date_start:
+            $ref: '#/definitions/Date'
+          order_id:
+            description: search from policy
+            type: string
+            x-go-name: OrderID
+          payment_status:
+            description: search from invoice
+            items:
+              $ref: '#/definitions/InvoiceStatus'
+            type: array
+            x-go-name: PaymentStatus
+          policy_status:
+            items:
+              $ref: '#/definitions/PolicyStatus'
+            type: array
+            x-go-name: PolicyStatus
+          region:
+            items:
+              $ref: '#/definitions/Country'
+            type: array
+            x-go-name: Region
+          reimbursement_status:
+            items:
+              $ref: '#/definitions/ReimbStatus'
+            type: array
+            x-go-name: ReimbursementStatus
+          risk_profile:
+            description: unused
+            items:
+              type: string
+            type: array
+            x-go-name: RiskProfile
+          shop_id:
+            type: string
+            x-go-name: ShopID
+        type: object
+        x-go-name: Filter
+      id_search:
+        type: string
+        x-go-name: IDSearch
+      page:
+        $ref: '#/definitions/Page'
+      select_ids:
+        items:
+          format: int64
+          type: integer
+        type: array
+        x-go-name: SelectIDs
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrdersTableResponse:
+    properties:
+      page:
+        $ref: '#/definitions/PageInfo'
+      rows:
+        items:
+          $ref: '#/definitions/OrdersTableRow'
+        type: array
+        x-go-name: Rows
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OrdersTableRow:
+    properties:
+      claim_amount:
+        type: string
+        x-go-name: ClaimAmount
+      claim_amount_cny:
+        type: string
+        x-go-name: ClaimAmountCNY
+      claim_amount_usd:
+        type: string
+        x-go-name: ClaimAmountUSD
+      claim_date:
+        $ref: '#/definitions/Date'
+      claim_reason:
+        $ref: '#/definitions/ClaimReason'
+      claim_status:
+        $ref: '#/definitions/ClaimStatus'
+      coverage_amount:
+        type: string
+        x-go-name: CoverageAmount
+      coverage_amount_cny:
+        type: string
+        x-go-name: CoverageAmountCNY
+      coverage_amount_usd:
+        type: string
+        x-go-name: CoverageAmountUSD
+      currency:
+        $ref: '#/definitions/Currency'
+      expire_at:
+        $ref: '#/definitions/Date'
+      merchant_email:
+        type: string
+        x-go-name: MerchantEmail
+      order_create_date:
+        $ref: '#/definitions/Date'
+      order_id:
+        type: string
+        x-go-name: OrderID
+      payment_status:
+        $ref: '#/definitions/InvoiceStatus'
+      policy_id:
+        format: int64
+        type: integer
+        x-go-name: PolicyID
+      policy_status:
+        $ref: '#/definitions/PolicyStatus'
+      region:
+        $ref: '#/definitions/Country'
+      reimbursement_amount:
+        type: string
+        x-go-name: ReimbursementAmount
+      reimbursement_amount_cny:
+        type: string
+        x-go-name: ReimbursementAmountCNY
+      reimbursement_amount_usd:
+        type: string
+        x-go-name: ReimbursementAmountUSD
+      reimbursement_date:
+        $ref: '#/definitions/Date'
+      reimbursement_status:
+        $ref: '#/definitions/ReimbStatus'
+      reject_reason:
+        type: string
+        x-go-name: RejectReason
+      risk_profile:
+        type: string
+        x-go-name: RiskProfile
+      service_fee:
+        type: string
+        x-go-name: ServiceFee
+      service_fee_cny:
+        type: string
+        x-go-name: ServiceFeeCNY
+      service_fee_usd:
+        type: string
+        x-go-name: ServiceFeeUSD
+      shop_id:
+        type: string
+        x-go-name: ShopID
+      valid_from:
+        $ref: '#/definitions/Date'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OverViewList:
+    properties:
+      approve_claim_amount_usd:
+        format: double
+        type: number
+        x-go-name: ApproveClaimAmountUSD
+      approve_claim_count:
+        format: int64
+        type: integer
+        x-go-name: ApproveClaimCount
+      coverage_amount_usd:
+        format: double
+        type: number
+        x-go-name: CoverageAmountUSD
+      order_amount_usd:
+        format: double
+        type: number
+        x-go-name: OrderAmountUSD
+      order_date:
+        type: string
+        x-go-name: OrderDate
+      order_quantity:
+        format: int64
+        type: integer
+        x-go-name: OrderQuantity
+      paid_service_fee_usd:
+        format: double
+        type: number
+        x-go-name: PaidServiceFeeUSD
+      service_fee_usd:
+        format: double
+        type: number
+        x-go-name: ServiceFeeUSD
+      submitted_claim_count:
+        format: int64
+        type: integer
+        x-go-name: SubmittedClaimCount
+      unpaid_service_fee_usd:
+        format: double
+        type: number
+        x-go-name: UnpaidServiceFeeUSD
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OverViewRequest:
+    properties:
+      date_end:
+        $ref: '#/definitions/Date'
+      date_start:
+        $ref: '#/definitions/Date'
+      email:
+        description: 'in: query'
+        type: string
+        x-go-name: Email
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  OverViewResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/OverViewList'
+        type: array
+        x-go-name: List
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  Page:
+    properties:
+      limit:
+        format: int64
+        type: integer
+        x-go-name: Limit
+      offset:
+        format: int64
+        type: integer
+        x-go-name: Offset
+      order:
+        type: string
+        x-go-name: Order
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/lib/orm
+  PageInfo:
+    properties:
+      limit:
+        format: int64
+        type: integer
+        x-go-name: Limit
+      offset:
+        format: int64
+        type: integer
+        x-go-name: Offset
+      total:
+        format: int64
+        type: integer
+        x-go-name: Total
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/lib/orm
+  PaymentCallbackMeta:
+    properties:
+      ref_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: RefIds
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PaymentCallbackRequest:
+    properties:
+      amount:
+        $ref: '#/definitions/Cent'
+      currency:
+        type: string
+        x-go-name: Currency
+      gateway:
+        type: string
+        x-go-name: Gateway
+      meta:
+        $ref: '#/definitions/PaymentCallbackMeta'
+      payment_id:
+        type: string
+        x-go-name: PaymentID
+      txn_status:
+        type: string
+        x-go-name: TxnStatus
+      user_id:
+        type: string
+        x-go-name: UserID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PaymentCallbackResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PaymentGateway:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  PaymentWay:
+    properties:
+      isAuth:
+        type: boolean
+        x-go-name: IsAuth
+      name:
+        $ref: '#/definitions/PaymentGateway'
+      priority:
+        format: int64
+        type: integer
+        x-go-name: Priority
+      supportAutoDeduction:
+        type: boolean
+        x-go-name: SupportAutoDeduction
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  Plan:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  PolicyStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  PremiumInvoiceView:
+    properties:
+      discount_expire_time:
+        $ref: '#/definitions/Date'
+      email:
+        type: string
+        x-go-name: Email
+      expiry_date:
+        $ref: '#/definitions/Date'
+      invoice_id:
+        type: string
+        x-go-name: InvoiceID
+      issuance_date:
+        $ref: '#/definitions/Date'
+      order_details:
+        type: string
+        x-go-name: OrderDetails
+      payment_id:
+        type: string
+        x-go-name: PaymentID
+      payment_method:
+        $ref: '#/definitions/PaymentGateway'
+      payment_status:
+        $ref: '#/definitions/InvoiceStatus'
+      pdf_invoice:
+        type: string
+        x-go-name: PDFInvoice
+      total_service_fee_cny:
+        type: string
+        x-go-name: TotalServiceFeeCNY
+      total_service_fee_discount_cny:
+        type: string
+        x-go-name: TotalServiceFeeDiscountCNY
+      total_service_fee_discount_usd:
+        type: string
+        x-go-name: TotalServiceFeeDiscountUSD
+      total_service_fee_usd:
+        type: string
+        x-go-name: TotalServiceFeeUSD
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PremiumPayRequest:
+    properties:
+      gateway:
+        $ref: '#/definitions/PaymentGateway'
+      ori_amount_usd:
+        type: string
+        x-go-name: OriAmountUSD
+      ref_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: RefIDs
+      return_url:
+        type: string
+        x-go-name: ReturnURL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PremiumPayResponse:
+    properties:
+      payment_id:
+        type: string
+        x-go-name: PaymentID
+      url:
+        type: string
+        x-go-name: RedirectURL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  PremiumRateCreate:
+    additionalProperties:
+      items:
+        $ref: '#/definitions/PremiumRateCreatePlan'
+      type: array
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service
+  PremiumRateCreatePlan:
+    properties:
+      plan:
+        $ref: '#/definitions/Plan'
+      premium_rate:
+        format: double
+        type: number
+        x-go-name: PremiumRate
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service
+  PremiumRateView:
+    properties:
+      Plan:
+        $ref: '#/definitions/Plan'
+      PremiumRate:
+        type: string
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ProcessResponse:
+    properties:
+      percent:
+        format: int64
+        type: integer
+        x-go-name: Percent
+      url:
+        type: string
+        x-go-name: URL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  RefundStatus:
+    format: int64
+    type: integer
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/vo
+  RegisterMerchantInfo:
+    properties:
+      company_name:
+        type: string
+        x-go-name: CompanyName
+      email:
+        type: string
+        x-go-name: Email
+      qq:
+        type: string
+        x-go-name: QQ
+      wechat:
+        type: string
+        x-go-name: Wechat
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  RegisterShopInfo:
+    properties:
+      country:
+        $ref: '#/definitions/Country'
+      id:
+        type: string
+        x-go-name: ID
+      link:
+        type: string
+        x-go-name: Link
+      name:
+        type: string
+        x-go-name: Name
+      plan:
+        $ref: '#/definitions/Plan'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  ReimbPayRequest:
+    properties:
+      gateway:
+        $ref: '#/definitions/PaymentGateway'
+      ref_ids:
+        items:
+          type: string
+        type: array
+        x-go-name: RefIDs
+      return_url:
+        type: string
+        x-go-name: ReturnURL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ReimbPayResponse:
+    properties:
+      payment_id:
+        type: string
+        x-go-name: PaymentID
+      url:
+        type: string
+        x-go-name: RedirectURL
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ReimbStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  ReimbursementInvoiceView:
+    properties:
+      email:
+        type: string
+        x-go-name: Email
+      invoice_id:
+        type: string
+        x-go-name: InvoiceID
+      issuance_date:
+        $ref: '#/definitions/Date'
+      payment_method:
+        $ref: '#/definitions/PaymentGateway'
+      pdf_invoice:
+        type: string
+        x-go-name: PDFInvoice
+      reimbursement_amount_cny:
+        type: string
+        x-go-name: ReimbursementAmountCNY
+      reimbursement_amount_usd:
+        type: string
+        x-go-name: ReimbursementAmountUSD
+      reimbursement_details:
+        type: string
+        x-go-name: ReimbursementDetails
+      reimbursement_method:
+        $ref: '#/definitions/PaymentGateway'
+      reimbursement_paid_date:
+        $ref: '#/definitions/Date'
+      reimbursement_status:
+        $ref: '#/definitions/InvoiceStatus'
+      usable_reimbursement_methods:
+        items:
+          $ref: '#/definitions/PaymentGateway'
+        type: array
+        x-go-name: UsableReimbMethods
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ReturnReason:
+    format: int64
+    type: integer
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/vo
+  SetPremiumRateRequest:
+    properties:
+      active_date:
+        $ref: '#/definitions/Date'
+      no_notification:
+        type: boolean
+        x-go-name: NoNotification
+      shop_premium_rates:
+        $ref: '#/definitions/PremiumRateCreate'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  SetPremiumRateResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ShopChangePlanRequest:
+    properties:
+      plan:
+        $ref: '#/definitions/Plan'
+      shop_id:
+        type: string
+        x-go-name: ShopID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ShopChangePlanResponse:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ShopRegisterRequest:
+    properties:
+      basic_info:
+        $ref: '#/definitions/RegisterMerchantInfo'
+      shops:
+        items:
+          $ref: '#/definitions/RegisterShopInfo'
+        type: array
+        x-go-name: Shops
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ShopRegisterResponse:
+    properties:
+      owned_by_others:
+        items:
+          type: string
+        type: array
+        x-go-name: OwnedByOthers
+      registered:
+        items:
+          type: string
+        type: array
+        x-go-name: Registered
+      task_in_pending:
+        items:
+          type: string
+        type: array
+        x-go-name: TaskInPending
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  ShopStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  ShopView:
+    properties:
+      activate_time:
+        $ref: '#/definitions/Date'
+      pending_task:
+        $ref: '#/definitions/TaskType'
+      premium_rate:
+        type: string
+        x-go-name: PremiumRate
+      protection_plan:
+        $ref: '#/definitions/Plan'
+      red_point:
+        type: boolean
+        x-go-name: RedPoint
+      region:
+        $ref: '#/definitions/Country'
+      register_time:
+        $ref: '#/definitions/Date'
+      shop_id:
+        type: string
+        x-go-name: ShopID
+      shop_link:
+        type: string
+        x-go-name: ShopLink
+      shop_name:
+        type: string
+        x-go-name: ShopName
+      status:
+        $ref: '#/definitions/ShopStatus'
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  TaskOp:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  TaskStatus:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  TaskType:
+    type: string
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/service/entity
+  TaskView:
+    properties:
+      company_name:
+        description: shop info
+        type: string
+        x-go-name: CompanyName
+      email:
+        type: string
+        x-go-name: Email
+      premium_rate:
+        type: string
+        x-go-name: PremiumRate
+      protection_plan:
+        $ref: '#/definitions/Plan'
+      qq:
+        type: string
+        x-go-name: QQ
+      region:
+        $ref: '#/definitions/Country'
+      register_date:
+        $ref: '#/definitions/Date'
+      request_date:
+        $ref: '#/definitions/Date'
+      shop_id:
+        type: string
+        x-go-name: ShopID
+      shop_link:
+        type: string
+        x-go-name: ShopLink
+      shop_name:
+        type: string
+        x-go-name: ShopName
+      task_id:
+        description: task info
+        format: int64
+        type: integer
+        x-go-name: TaskID
+      task_status:
+        $ref: '#/definitions/TaskStatus'
+      task_type:
+        $ref: '#/definitions/TaskType'
+      wechat:
+        type: string
+        x-go-name: Wechat
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  UpdatePaymentWaysRequest:
+    properties:
+      paymentWays:
+        items:
+          $ref: '#/definitions/PaymentWay'
+        type: array
+        x-go-name: PaymentWays
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  UpdatePaymentWaysResponse:
+    properties:
+      paymentWays:
+        items:
+          $ref: '#/definitions/PaymentWay'
+        type: array
+        x-go-name: PaymentWays
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+  UploadClaimReq:
+    properties:
+      insurance_type:
+        description: Insurance type
+        type: string
+        x-go-name: InsuranceType
+      logistics:
+        description: Logistics infos
+        properties:
+          latest_status:
+            $ref: '#/definitions/LogisticsStatus'
+          latest_status_time:
+            description: LatestStatusTime, timestamp in seconds
+            format: int64
+            type: integer
+            x-go-name: LatestStatusTime
+          shipping_tracking_number:
+            description: Tracking number
+            type: string
+            x-go-name: TrackingNumber
+        required:
+          - latest_status
+          - shipping_tracking_number
+        type: object
+        x-go-name: Logistics
+      order_id:
+        description: order id
+        type: string
+        x-go-name: OrderID
+      payment_method:
+        description: order payment method
+        enum:
+          - COD
+          - Non-COD
+        type: string
+        x-go-name: PaymentMethod
+      pickup_time:
+        description: timestamp in seconds, time at order pickup
+        format: int64
+        type: integer
+        x-go-name: PickupTime
+      refund:
+        description: refund info
+        properties:
+          amount:
+            format: double
+            type: number
+            x-go-name: Amount
+          currency:
+            type: string
+            x-go-name: Currency
+          id:
+            type: string
+            x-go-name: ID
+          request_time:
+            format: int64
+            type: integer
+            x-go-name: RequestTime
+          status:
+            $ref: '#/definitions/RefundStatus'
+        required:
+          - amount
+        type: object
+        x-go-name: Refund
+      return:
+        description: item return info
+        properties:
+          id:
+            type: string
+            x-go-name: ID
+          items:
+            items:
+              properties:
+                id:
+                  type: string
+                  x-go-name: ID
+                name:
+                  type: string
+                  x-go-name: Name
+                quantity:
+                  format: int64
+                  type: integer
+                  x-go-name: Quantity
+                return_reason:
+                  $ref: '#/definitions/ReturnReason'
+              type: object
+            type: array
+            x-go-name: Items
+          request_time:
+            format: int64
+            type: integer
+            x-go-name: RequestTime
+        type: object
+        x-go-name: Return
+      shop_id:
+        description: shop id
+        type: string
+        x-go-name: ShopID
+    required:
+      - shop_id
+      - order_id
+      - insurance_type
+      - pickup_time
+      - logistics
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/v4
+  UploadClaimRes:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/v4
+  UploadOrderReq:
+    properties:
+      buyer_info:
+        description: buyer info
+        properties:
+          address:
+            type: string
+            x-go-name: Address
+          address_city:
+            type: string
+            x-go-name: AddressCity
+          address_country:
+            type: string
+            x-go-name: AddressCountry
+          name:
+            description: buyer name
+            type: string
+            x-go-name: Name
+          phone:
+            description: buyser phone
+            type: string
+            x-go-name: Phone
+        required:
+          - phone
+        type: object
+        x-go-name: BuyerInfo
+      create_time:
+        description: timestamp in seconds, time at order created
+        format: int64
+        type: integer
+        x-go-name: CreateTime
+      currency:
+        description: order amount's currency
+        type: string
+        x-go-name: Currency
+      items:
+        description: Items' infos.
+        items:
+          properties:
+            id:
+              description: item id
+              type: string
+              x-go-name: ID
+            link:
+              description: item link
+              type: string
+              x-go-name: Link
+            name:
+              description: item name
+              type: string
+              x-go-name: Name
+            quantity:
+              format: uint64
+              type: integer
+              x-go-name: Quantity
+            total_price:
+              description: total price, unit price x quantity
+              type: string
+              x-go-name: TotalPrice
+          required:
+            - id
+            - name
+            - link
+            - quantity
+            - total_price
+          type: object
+        minItems: 1
+        type: array
+        x-go-name: Items
+      order_id:
+        description: order id
+        type: string
+        x-go-name: OrderID
+      payment_method:
+        description: order payment method
+        enum:
+          - COD Non-COD
+        type: string
+        x-go-name: PaymentMethod
+      pickup_time:
+        description: timestamp in seconds, time at order pickup
+        format: int64
+        type: integer
+        x-go-name: PickupTime
+      shipping:
+        description: Shipping info
+        properties:
+          category:
+            description: Shipping category
+            enum:
+              - Integrated
+            type: string
+            x-go-name: Category
+          shipping_fee:
+            description: ShippingFee
+            format: double
+            type: number
+            x-go-name: ShippingFee
+          trace_number:
+            description: Shipping Tracking Number
+            type: string
+            x-go-name: TrackingNumber
+        required:
+          - trace_number
+        type: object
+        x-go-name: Shipping
+      shop_id:
+        description: shop id
+        type: string
+        x-go-name: ShopID
+      shop_name:
+        description: shop name
+        type: string
+        x-go-name: ShopName
+    required:
+      - shop_name
+      - shop_id
+      - order_id
+      - create_time
+      - pickup_time
+      - currency
+      - shipping
+      - items
+      - buyer_info
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/v4
+  UploadOrderRes:
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/v4
+  UploadOrderResponse:
+    properties:
+      job_id:
+        type: string
+        x-go-name: JobID
+    type: object
+    x-go-package: github.com/axinan-com/goserver/insurance/crossborder/shopee/server/dto
+host: api.shopeexb.dev.axinan.com;api.shopeexb.staging.axinan.com;api-shopeexb.insurance.axinan.com
+info:
+  description: Shopee(v3) is a service for shopee crossborder.
+  title: definition all handler for shopee v3.
+  version: 0.0.1
+paths:
+  /v3/admin/job_progress/{id}:
+    get:
+      operationId: GetJobProgress
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetJobProgressResponse'
+      tags:
+        - async_jobs
+  /v3/admin/lianlian_refund_csv/download:
+    post:
+      consumes:
+        - application/json
+      operationId: DownloadLianLianRefundFile
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/DownloadLianLianRefundFileRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/DownloadLianLianRefundFileResponse'
+      tags:
+        - dashboard
+  /v3/admin/order:
+    get:
+      consumes:
+        - application/json
+      operationId: OrderDetail
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OrderDetailRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OrderDetailResponse'
+      tags:
+        - dashboard
+  /v3/admin/orders_table:
+    get:
+      consumes:
+        - application/json
+      operationId: OrdersTable
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OrdersTableRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OrdersTableResponse'
+      tags:
+        - dashboard
+  /v3/admin/orders_table/download:
+    get:
+      consumes:
+        - application/json
+      operationId: DownloadOrdersTable
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OrdersTableRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/DownloadOrdersTableResponse'
+      tags:
+        - dashboard
+  /v3/admin/payment_amount:
+    get:
+      operationId: AdminGetPaymentAmount
+      parameters:
+        - in: query
+          name: ref_ids
+          type: string
+          x-go-name: RefIDs
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetPaymentAmountResponse'
+      tags:
+        - invoice
+        - pay
+  /v3/admin/premium_invoices:
+    get:
+      operationId: AdminGetPremiumInvoices
+      parameters:
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+        - in: query
+          name: owner_mail
+          type: string
+          x-go-name: OwnerMail
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - in: query
+          items:
+            $ref: '#/definitions/PaymentGateway'
+          name: payment_method
+          type: array
+          x-go-name: PaymentMethod
+        - in: query
+          items:
+            $ref: '#/definitions/PaymentGateway'
+          name: refund_method
+          type: array
+          x-go-name: RefundMethod
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetPremiumInvoicesResponse'
+      tags:
+        - invoice
+  /v3/admin/premium_invoices/download:
+    get:
+      operationId: DownloadPremiumInvoices
+      parameters:
+        - in: query
+          name: owner_mail
+          type: string
+          x-go-name: OwnerMail
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: payment_method
+          type: string
+          x-go-name: PaymentMethod
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - in: query
+          name: download_type
+          type: string
+          x-go-name: DownloadType
+        - in: query
+          items:
+            type: string
+          name: select_ids
+          type: array
+          x-go-name: SelectIDs
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/DownloadInvoicesResponse'
+      tags:
+        - invoice
+  /v3/admin/reimbursement_invoices:
+    get:
+      operationId: AdminGetReimbursementInvoices
+      parameters:
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+        - in: query
+          name: owner_mail
+          type: string
+          x-go-name: OwnerMail
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - in: query
+          items:
+            $ref: '#/definitions/PaymentGateway'
+          name: payment_method
+          type: array
+          x-go-name: PaymentMethod
+        - in: query
+          items:
+            $ref: '#/definitions/PaymentGateway'
+          name: refund_method
+          type: array
+          x-go-name: RefundMethod
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetReimbursementInvoicesResponse'
+      tags:
+        - invoice
+  /v3/admin/reimbursement_invoices/download:
+    get:
+      operationId: DownloadReimbursementInvoices
+      parameters:
+        - in: query
+          name: owner_mail
+          type: string
+          x-go-name: OwnerMail
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: payment_method
+          type: string
+          x-go-name: PaymentMethod
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - in: query
+          name: download_type
+          type: string
+          x-go-name: DownloadType
+        - in: query
+          items:
+            type: string
+          name: select_ids
+          type: array
+          x-go-name: SelectIDs
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/DownloadInvoicesResponse'
+      tags:
+        - invoice
+  /v3/admin/reimbursement_pay:
+    post:
+      consumes:
+        - application/json
+      operationId: ReimbPay
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/ReimbPayRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ReimbPayResponse'
+      tags:
+        - pay
+  /v3/admin/shop_task/{id}:
+    put:
+      consumes:
+        - application/json
+      operationId: OperateShopTask
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OperateTaskRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OperateTaskResponse'
+      tags:
+        - shop
+  /v3/admin/shop_tasks:
+    get:
+      consumes:
+        - application/json
+      operationId: GetShopTasks
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/GetTasksRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetTasksResponse'
+      tags:
+        - shop
+  /v3/admin/shops:
+    get:
+      consumes:
+        - application/json
+      operationId: AdminGetShops
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/AdminGetShopRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/AdminGetShopResponse'
+      tags:
+        - shop
+  /v3/admin/shops/download:
+    get:
+      consumes:
+        - application/json
+      operationId: DownloadShops
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/AdminGetShopRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/DownloadShopsResponse'
+      tags:
+        - shop
+  /v3/admin/upload_claim:
+    post:
+      consumes:
+        - multipart/form-data
+      operationId: UploadClaim
+      parameters:
+        - description: order file to upload
+          in: formData
+          name: file
+          type: file
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetJobProgressResponse'
+      tags:
+        - async_jobs
+  /v3/admin/upload_order:
+    post:
+      consumes:
+        - multipart/form-data
+      operationId: UploadOrder
+      parameters:
+        - description: order file to upload
+          in: formData
+          name: file
+          type: file
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetJobProgressResponse'
+      tags:
+        - async_jobs
+  /v3/claim:
+    post:
+      operationId: UploadClaim
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/UploadClaimReq'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/UploadClaimRes'
+      tags:
+        - claim
+  /v3/exec_job:
+    post:
+      consumes:
+        - application/json
+      operationId: ExecCronJob
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/ExecCronJobRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ExecCronJobResponse'
+      tags:
+        - dashboard
+  /v3/invoice:
+    post:
+      consumes:
+        - application/json
+      operationId: FillDataToPlaceHolderInvoices
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/FillDataToPlaceHolderInvoicesRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+      tags:
+        - async_jobs
+  /v3/invoice/expire:
+    post:
+      consumes:
+        - application/json
+      operationId: ExpireInvoices
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/ExpireInvoicesRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ExpireInvoicesResponse'
+      tags:
+        - async_jobs
+  /v3/merchant/order:
+    get:
+      consumes:
+        - application/json
+      operationId: MerchantOrderDetail
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OrderDetailRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OrderDetailResponse'
+      tags:
+        - dashboard
+  /v3/merchant/orders_table:
+    get:
+      consumes:
+        - application/json
+      operationId: MerchantOrdersTable
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OrdersTableRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OrdersTableResponse'
+      tags:
+        - dashboard
+  /v3/merchant/payment_amount:
+    get:
+      operationId: MerchantGetPaymentAmount
+      parameters:
+        - in: query
+          name: ref_ids
+          type: string
+          x-go-name: RefIDs
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetPaymentAmountResponse'
+      tags:
+        - invoice
+        - pay
+  /v3/merchant/paymentWays:
+    get:
+      operationId: GetPaymentWays
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetPaymentWaysResponse'
+      tags:
+        - payment
+    put:
+      operationId: UpdatePaymentWays
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdatePaymentWaysRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+      summary: Update payment ways.
+      tags:
+        - payment
+  /v3/merchant/premium_invoices:
+    get:
+      operationId: MerchantGetPremiumInvoices
+      parameters:
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetPremiumInvoicesResponse'
+      tags:
+        - invoice
+  /v3/merchant/premium_pay:
+    post:
+      consumes:
+        - application/json
+      operationId: PremiumPay
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/PremiumPayRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/PremiumPayResponse'
+      tags:
+        - pay
+  /v3/merchant/reimbursement_invoices:
+    get:
+      operationId: MerchantGetReimbursementInvoices
+      parameters:
+        - in: query
+          items:
+            $ref: '#/definitions/InvoiceStatus'
+          name: status
+          type: array
+          x-go-name: Status
+        - in: query
+          name: issuance_date_start
+          type: string
+          x-go-name: IssuanceDateStart
+        - in: query
+          name: issuance_date_end
+          type: string
+          x-go-name: IssuanceDateEnd
+        - format: int64
+          in: query
+          name: limit
+          type: integer
+          x-go-name: Limit
+        - format: int64
+          in: query
+          name: offset
+          type: integer
+          x-go-name: Offset
+        - in: query
+          name: order
+          type: string
+          x-go-name: Order
+        - in: query
+          name: id_search
+          type: string
+          x-go-name: SearchID
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetReimbursementInvoicesResponse'
+      tags:
+        - invoice
+  /v3/merchant/shop/plan:
+    post:
+      consumes:
+        - application/json
+      operationId: ShopChangePlan
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/ShopChangePlanRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ShopChangePlanResponse'
+      tags:
+        - shop
+  /v3/merchant/shop/plans:
+    get:
+      operationId: GetShopPlans
+      parameters:
+        - in: query
+          name: shop_id
+          type: string
+          x-go-name: ShopID
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetShopPlans'
+      tags:
+        - shop
+  /v3/merchant/shop/red_point/{id}:
+    put:
+      consumes:
+        - application/json
+      operationId: ShopChangePlan
+      parameters:
+        - in: path
+          name: id
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+      tags:
+        - shop
+  /v3/merchant/shop_task:
+    post:
+      consumes:
+        - application/json
+      operationId: CreateShopTask
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/CreateTaskRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/CreateTaskResponse'
+      tags:
+        - shop
+  /v3/merchant/shops:
+    get:
+      operationId: GetShops
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GetShopsResponse'
+      tags:
+        - shop
+  /v3/order:
+    post:
+      operationId: UploadOrder
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/UploadOrderReq'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/UploadOrderRes'
+      tags:
+        - order
+  /v3/overview:
+    get:
+      consumes:
+        - application/json
+      operationId: MerchantOrderDetail
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/OverViewRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/OverViewResponse'
+      tags:
+        - dashboard
+  /v3/payment/callback:
+    post:
+      consumes:
+        - application/json
+      operationId: PaymentCallback
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/PaymentCallbackResponse'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+      tags:
+        - pay
+  /v3/premium_rate:
+    post:
+      consumes:
+        - application/json
+      operationId: SetPremiumRate
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/SetPremiumRateRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/SetPremiumRateResponse'
+      tags:
+        - dynamic_price
+  /v3/shop/register:
+    post:
+      consumes:
+        - application/json
+      operationId: RegisterShop
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/ShopRegisterRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ShopRegisterResponse'
+      tags:
+        - shop
+  /v3/shop/register_check:
+    post:
+      consumes:
+        - application/json
+      operationId: CheckShopRegister
+      parameters:
+        - in: body
+          name: query
+          required: true
+          schema:
+            $ref: '#/definitions/CheckShopRegisterRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/CheckShopRegisterResponse'
+      tags:
+        - shop
+produces:
+  - application/json
+responses:
+  adminAccountLoginResponse:
+    description: AdminAccountLoginResponse
+    headers:
+      user_token:
+        description: an jwt token of user
+        type: string
+  adminAccountLoginWithOauthResponse:
+    description: AdminAccountLoginWithOauthResponse
+    headers:
+      user_token:
+        description: an jwt token of user
+        type: string
+  adminAccountResetPasswordResponse:
+    description: AdminAccountResetPasswordResponse
+    headers:
+      success:
+        description: Is operation successful
+        type: boolean
+schemes:
+  - http
+  - https
+swagger: "2.0"
