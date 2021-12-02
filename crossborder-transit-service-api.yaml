@@ -1,3 +1,7 @@
+swagger: "2.0"
+schemes:
+  - http
+  - https
 basePath: /
 consumes:
   - application/json
@@ -2560,7 +2564,3 @@ responses:
       success:
         description: Is operation successful
         type: boolean
-schemes:
-  - http
-  - https
-swagger: "2.0"
