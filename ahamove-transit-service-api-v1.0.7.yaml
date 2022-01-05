@@ -392,7 +392,24 @@ definitions:
         type: array
         uniqueItems: true
         description: 'Categories of all goods in the transit，If the value of is_non_cod is equal to true, this field must be set'
-        items: {}
+        items:
+          type: string
+          enum:
+            - electronics
+            - health & beauty
+            - housing & lifestyle
+            - cake
+            - cigarette
+            - drink
+            - fashion
+            - food
+            - grocery
+            - individual needs
+            - mother & baby
+            - transportation
+            - restaurant
+            - sport
+            - other
       item_value:
         type: number
         format: float
@@ -540,24 +557,6 @@ definitions:
         enum:
           - ka
         description: 'When the user is a key account, please set the value of this field to ka, otherwise please do not set the value of this field'
-        items:
-          type: string
-          enum:
-            - electronics
-            - health & beauty
-            - housing & lifestyle
-            - cake
-            - cigarette
-            - drink
-            - fashion
-            - food
-            - grocery
-            - individual needs
-            - mother & baby
-            - transportation
-            - restaurant
-            - sport
-            - other
     required:
       - order_id
       - order_created_date
