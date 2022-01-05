@@ -388,8 +388,8 @@ definitions:
             format: double
             description: |-
               total price of item, This field must be set when one of the following situations occurs
-              1. When all parcels in the order are of cod type
-              2. When the package in the order has cod type and non-cod type
+              1. source_partner is not set and all packages in the order are of cod type
+              2. source_partner is not set and the package in the order has cod type and non-cod type
       categories:
         type: array
         uniqueItems: true
