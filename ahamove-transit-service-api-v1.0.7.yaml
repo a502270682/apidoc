@@ -387,9 +387,7 @@ definitions:
             type: number
             format: double
             description: |-
-              total price of item, This field must be set when one of the following situations occurs
-              1. source_partner is not set and all transits in the order are of cod type
-              2. source_partner is not set and the transit in the order has cod type and non-cod type
+              total price of item, When the value of source_partner is not ka, the field value must be set
       categories:
         type: array
         uniqueItems: true
