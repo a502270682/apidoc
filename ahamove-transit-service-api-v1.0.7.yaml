@@ -386,8 +386,7 @@ definitions:
           total_price:
             type: number
             format: double
-            description: |-
-              total price of item, When the value of source_partner is not ka, the field value must be set
+            description: 'total price of item, The value must be set to 0 for non-cod types during transit'
       categories:
         type: array
         uniqueItems: true
@@ -416,9 +415,6 @@ definitions:
         description: |-
           for prepaid value
           order of Key Account, If customer is a key account, this field must be set
-      is_non_cod:
-        type: boolean
-        description: 'If the transit is non-cod, please set the field to true, otherwise please set it to false'
     required:
       - transit_id
       - tracking_number
