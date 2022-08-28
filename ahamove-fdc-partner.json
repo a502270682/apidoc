@@ -669,30 +669,30 @@
           "description": "unix timestamp in sec"
         }
       },
-        "photo_of_return_order_to_booker": {
-          "type": "string",
-          "x-go-name": "PhotoOfReturnOrderToBooker"
-        },
-        "policy_id": {
-          "type": "string",
-          "x-go-name": "PolicyID"
-        },
-        "return_conformation": {
-          "type": "string",
-          "x-go-name": "ReturnConformation"
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "Claim requested",
-            "Claim approve",
-            "Claim reject",
-            "Reimburse pending",
-            "Reimburse updated",
-            "Claim complete"
-          ],
-          "x-go-name": "State"
-        },
+      "photo_of_return_order_to_booker": {
+        "type": "string",
+        "x-go-name": "PhotoOfReturnOrderToBooker"
+      },
+      "policy_id": {
+        "type": "string",
+        "x-go-name": "PolicyID"
+      },
+      "return_conformation": {
+        "type": "string",
+        "x-go-name": "ReturnConformation"
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "Claim requested",
+          "Claim approve",
+          "Claim reject",
+          "Reimburse pending",
+          "Reimburse updated",
+          "Claim complete"
+        ],
+        "x-go-name": "State"
+      },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ClaimItem":{
@@ -1095,6 +1095,16 @@
           ],
           "type": "string",
           "x-go-name": "State"
+        },
+        "coverage_amount": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "CoverageAmount"
+        },
+        "premium_amount": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "PremiumAmount"
         }
       },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
