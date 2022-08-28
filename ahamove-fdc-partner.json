@@ -1,0 +1,1158 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Your description",
+    "title": "ahamove-fdc API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "paths": {
+    "/v1/transit-ahamove-fdc/bank_info": {
+      "put": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "UpdateBankInfo",
+        "parameters": [
+          {
+            "name": "UpdateBankInfoReq",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateBankInfoReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/UpdateBankInfoRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
+    "/v1/transit-ahamove-fdc/claims": {
+      "get": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "ClaimList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "DriverID",
+            "name": "driver_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "PolicyID",
+            "name": "policy_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Page",
+            "description": "use 1,2,3,4...n",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "description": "use 10,20,30",
+            "name": "page_size",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/ClaimListRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "CreateClaim",
+        "parameters": [
+          {
+            "name": "CreateClaimReq",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateClaimReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/CreateClaimRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
+    "/v1/transit-ahamove-fdc/claims/{id}": {
+      "get": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "GetClaim",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "ID",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/GetClaimRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
+    "/v1/transit-ahamove-fdc/policies": {
+      "get": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "GetPolicyList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "DriverID",
+            "name": "driver_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Page",
+            "description": "use 1,2,3,4...n",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "description": "use 10,20,30",
+            "name": "page_size",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/GetPolicyListRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
+    "/v1/transit-ahamove-fdc/policy/create_policy": {
+      "post": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "CreatePolicy",
+        "parameters": [
+          {
+            "name": "CreatePolicyReq",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreatePolicyReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/CreatePolicyRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
+    "/v1/transit-ahamove-fdc/policy/{policy_id}": {
+      "get": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "GetPolicyInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "PolicyID",
+            "name": "policy_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/GetPolicyInfoRes"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NoticeClaimStateReqBody": {
+      "type": "object",
+      "properties": {
+        "claim_state": {
+          "type": "string",
+          "enum": [
+            "Claim requested",
+            "Claim approve",
+            "Claim reject",
+            "Reimburse pending",
+            "Reimburse updated",
+            "Claim complete"
+          ],
+          "x-go-name": "ClaimState"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+    },
+    "NoticeClaimStateRes": {
+      "type": "object",
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+    },
+    "NoticePolicyStateReqBody": {
+      "type": "object",
+      "properties": {
+        "driver_id": {
+          "type": "string",
+          "x-go-name": "DriverID"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "Issued",
+            "Active",
+            "Ended"
+          ],
+          "x-go-name": "State"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+    },
+    "NoticePolicyStateRes": {
+      "type": "object",
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+    },
+    "BankInfo": {
+      "type": "object",
+      "required": [
+        "bank_name",
+        "bank_account_name",
+        "bank_account"
+      ],
+      "properties": {
+        "bank_account": {
+          "type": "string",
+          "x-go-name": "BankAccount"
+        },
+        "bank_account_name": {
+          "type": "string",
+          "x-go-name": "BankAccountName"
+        },
+        "bank_name": {
+          "type": "string",
+          "x-go-name": "BankName"
+        },
+        "branch_at": {
+          "description": "bank account address",
+          "type": "string",
+          "x-go-name": "BranchAt"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ClaimInfo": {
+      "type": "object",
+      "properties": {
+        "bank_info": {
+          "$ref": "#/definitions/BankInfo"
+        },
+        "call_logs_to_receiver": {
+          "type": "string",
+          "x-go-name": "CallLogsToReceiver"
+        },
+        "fail_delivery_item_info": {
+          "type": "string",
+          "x-go-name": "FailDeliveryItemInfo"
+        },
+        "id": {
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "order_time": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "OrderTime",
+          "description": "unix timestamp in sec"
+        },
+        "failed_time": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "FailedTime",
+          "description": "unix timestamp in sec"
+        }
+      },
+        "photo_of_return_order_to_booker": {
+          "type": "string",
+          "x-go-name": "PhotoOfReturnOrderToBooker"
+        },
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "return_conformation": {
+          "type": "string",
+          "x-go-name": "ReturnConformation"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "Claim requested",
+            "Claim approve",
+            "Claim reject",
+            "Reimburse pending",
+            "Reimburse updated",
+            "Claim complete"
+          ],
+          "x-go-name": "State"
+        },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ClaimItem":{
+      "type": "object",
+      "required": [
+        "fail_delivery_item_info",
+        "failed_time",
+        "photo_of_return_order_to_booker",
+        "aha_status"
+      ],
+      "properties": {
+        "call_logs_to_receiver": {
+          "type": "string",
+          "x-go-name": "CallLogsToReceiver"
+        },
+        "fail_delivery_item_info": {
+          "type": "string",
+          "x-go-name": "FailDeliveryItemInfo"
+        },
+        "failed_time": {
+          "type": "int64",
+          "x-go-name": "FailedTime",
+          "description": "unix timestamp in sec"
+        },
+        "photo_of_return_order_to_booker": {
+          "type": "string",
+          "x-go-name": "PhotoOfReturnOrderToBooker"
+        },
+        "return_conformation": {
+          "type": "string",
+          "x-go-name": "ReturnConformation"
+        },
+        "aha_status": {
+          "type": "string",
+          "enum": [
+            "Claim approve",
+            "Claim reject"
+          ],
+          "x-go-name": "AhaStatus"
+        }
+      }
+    },
+    "ClaimList": {
+      "type": "object",
+      "properties": {
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClaimInfo"
+          },
+          "x-go-name": "Claims"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ClaimListRes": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "#/definitions/ClaimList"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "CreateClaimReq": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "order_time"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "order_time": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "OrderTime",
+          "description": "unix timestamp in sec"
+        },
+        "list_of_stop_delivery_points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClaimItem"
+          },
+          "x-go-name": "ClaimItems"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "CreateClaimRes": {
+      "type": "object",
+      "properties": {
+        "claim": {
+          "$ref": "#/definitions/ClaimInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "CreatePolicyReq": {
+      "type": "object",
+      "required": [
+        "driver_id",
+        "driver_name",
+        "driver_email",
+        "driver_phone_number",
+        "purchased_timestamp"
+      ],
+      "properties": {
+        "bank_info": {
+          "$ref": "#/definitions/BankInfo"
+        },
+        "driver_email": {
+          "description": "needed, email of driver",
+          "type": "string",
+          "x-go-name": "DriverEmail"
+        },
+        "driver_id": {
+          "description": "needed, user id of driver in ahamove",
+          "type": "string",
+          "x-go-name": "DriverID"
+        },
+        "driver_name": {
+          "description": "needed, name of driver",
+          "type": "string",
+          "x-go-name": "DriverName"
+        },
+        "driver_phone_number": {
+          "description": "needed, phone_number of driver",
+          "type": "string",
+          "x-go-name": "DriverPhoneNumber"
+        },
+        "purchased_timestamp": {
+          "description": "needed, unix timestamp(sec) of purchase policy",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PurchasedTimestamp"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "CreatePolicyRes": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/PolicyInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "Error": {
+      "description": "Error",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorBadRequest": {
+      "description": "Bad Request",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorConflict": {
+      "description": "Conflict",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorDefault": {
+      "description": "Unknown Error",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorForbidden": {
+      "description": "Forbidden",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorNotFound": {
+      "description": "Not found",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorRequestFailed": {
+      "description": "Request Failed",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorServerErrors": {
+      "description": "Server Errors",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorTooManyRequests": {
+      "description": "Too Many Requests",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "ErrorUnauthorized": {
+      "description": "Unauthorized",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A short string with a brief explanation of the type Erroror",
+          "type": "string",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "description": "Detailed description of the type Erroror",
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "GetClaimRes": {
+      "type": "object",
+      "properties": {
+        "claim": {
+          "$ref": "#/definitions/ClaimInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "GetPolicyInfoRes": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/PolicyInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "GetPolicyListRes": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "#/definitions/PolicyList"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "PolicyInfo": {
+      "type": "object",
+      "properties": {
+        "coi": {
+          "type": "string",
+          "x-go-name": "Coi"
+        },
+        "driver_email": {
+          "description": "needed, email of driver",
+          "type": "string",
+          "x-go-name": "DriverEmail"
+        },
+        "driver_id": {
+          "description": "needed, user id of driver in ahamove",
+          "type": "string",
+          "x-go-name": "DriverID"
+        },
+        "driver_name": {
+          "description": "needed, name of driver",
+          "type": "string",
+          "x-go-name": "DriverName"
+        },
+        "driver_phone_number": {
+          "description": "needed, phone_number of driver",
+          "type": "string",
+          "x-go-name": "DriverPhoneNumber"
+        },
+        "policy_end_date": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PolicyEndDate"
+        },
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "policy_start_date": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PolicyStartDate"
+        },
+        "state": {
+          "enum": [
+            "Issued",
+            "Active",
+            "Ended"
+          ],
+          "type": "string",
+          "x-go-name": "State"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "PolicyList": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyInfo"
+          },
+          "x-go-name": "Policies"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "UpdateBankInfoReq": {
+      "type": "object",
+      "required": [
+        "policy_id"
+      ],
+      "properties": {
+        "bank_info": {
+          "$ref": "#/definitions/BankInfo"
+        },
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "UpdateBankInfoRes": {
+      "type": "object",
+      "properties": {
+        "claim": {
+          "$ref": "#/definitions/ClaimInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "X-Axinan-Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ]
+}
