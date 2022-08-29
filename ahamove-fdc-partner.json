@@ -599,7 +599,7 @@
           "enum": [
             "Issued",
             "Active",
-            "Ended"
+            "Expired"
           ],
           "x-go-name": "State"
         }
@@ -1091,7 +1091,7 @@
           "enum": [
             "Issued",
             "Active",
-            "Ended"
+            "Expired"
           ],
           "type": "string",
           "x-go-name": "State"
