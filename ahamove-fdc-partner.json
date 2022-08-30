@@ -15,10 +15,10 @@
     "title": "ahamove-fdc API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "api.staging.iglooinsure.com",
   "basePath": "/",
   "paths": {
-    "/v1/transit-ahamove-fdc/bank_info": {
+    "/v1/transit-ahamove-fdc/partner/bank_info": {
       "put": {
         "tags": [
           "PartnerAPI"
@@ -91,7 +91,7 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/claims": {
+    "/v1/transit-ahamove-fdc/partner/claims": {
       "get": {
         "tags": [
           "PartnerAPI"
@@ -256,7 +256,7 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/claims/{id}": {
+    "/v1/transit-ahamove-fdc/partner/claims/{id}": {
       "get": {
         "tags": [
           "PartnerAPI"
@@ -329,7 +329,7 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/policies": {
+    "/v1/transit-ahamove-fdc/partner/policies": {
       "get": {
         "tags": [
           "PartnerAPI"
@@ -417,7 +417,7 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/policy/create_policy": {
+    "/v1/transit-ahamove-fdc/partner/policy/create_policy": {
       "post": {
         "tags": [
           "PartnerAPI"
@@ -490,7 +490,7 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/policy/{policy_id}": {
+    "/v1/transit-ahamove-fdc/partner/policy/{policy_id}": {
       "get": {
         "tags": [
           "PartnerAPI"
@@ -1156,13 +1156,13 @@
   "securityDefinitions": {
     "api_key": {
       "type": "apiKey",
-      "name": "X-Axinan-Authorization",
+      "name": "x-Axinan-Key",
       "in": "header"
     }
   },
   "security": [
     {
-      "api_key": []
+      "api_key": ["b5fbc53d4d4d4ee6bdcce29768652c34"]
     }
   ]
 }
