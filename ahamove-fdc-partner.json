@@ -1049,6 +1049,9 @@
     "PolicyInfo": {
       "type": "object",
       "properties": {
+        "bank_info": {
+          "$ref": "#/definitions/BankInfo"
+        },
         "coi": {
           "type": "string",
           "x-go-name": "Coi"
