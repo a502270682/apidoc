@@ -725,6 +725,10 @@
           "type": "string",
           "x-go-name": "ReturnConformation"
         },
+        "stoppoint_id": {
+          "type": "string",
+          "x-go-name": "StoppointID"
+        },
         "aha_status": {
           "type": "string",
           "enum": [
@@ -766,12 +770,17 @@
       "type": "object",
       "required": [
         "policy_id",
+        "order_id",
         "order_time"
       ],
       "properties": {
         "policy_id": {
           "type": "string",
           "x-go-name": "PolicyID"
+        },
+        "order_id": {
+          "type": "string",
+          "x-go-name": "OrderID"
         },
         "order_time": {
           "type": "integer",
