@@ -644,54 +644,43 @@
         "bank_info": {
           "$ref": "#/definitions/BankInfo"
         },
-        "call_logs_to_receiver": {
-          "type": "string",
-          "x-go-name": "CallLogsToReceiver"
-        },
-        "fail_delivery_item_info": {
-          "type": "string",
-          "x-go-name": "FailDeliveryItemInfo"
-        },
         "id": {
           "type": "string",
           "x-go-name": "ID"
         },
-        "order_time": {
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "OrderTime",
-          "description": "unix timestamp in sec"
+        "list_of_stop_delivery_points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClaimItem"
+          },
+          "x-go-name": "ListOfStopDeliveryPoints"
         },
-        "failed_time": {
+        "order_id": {
+          "type": "string",
+          "x-go-name": "OrderID"
+        },
+        "order_time": {
+          "description": "unix timestamp in sec",
           "type": "integer",
           "format": "int64",
-          "x-go-name": "FailedTime",
-          "description": "unix timestamp in sec"
+          "x-go-name": "OrderTime"
+        },
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "Claim requested",
+            "Claim approve",
+            "Claim reject",
+            "Reimburse pending",
+            "Reimburse updated",
+            "Claim complete"
+          ],
+          "x-go-name": "State"
         }
-      },
-      "photo_of_return_order_to_booker": {
-        "type": "string",
-        "x-go-name": "PhotoOfReturnOrderToBooker"
-      },
-      "policy_id": {
-        "type": "string",
-        "x-go-name": "PolicyID"
-      },
-      "return_conformation": {
-        "type": "string",
-        "x-go-name": "ReturnConformation"
-      },
-      "state": {
-        "type": "string",
-        "enum": [
-          "Claim requested",
-          "Claim approve",
-          "Claim reject",
-          "Reimburse pending",
-          "Reimburse updated",
-          "Claim complete"
-        ],
-        "x-go-name": "State"
       },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
@@ -700,8 +689,7 @@
       "required": [
         "fail_delivery_item_info",
         "failed_time",
-        "photo_of_return_order_to_booker",
-        "aha_status"
+        "photo_of_return_order_to_booker"
       ],
       "properties": {
         "call_logs_to_receiver": {
@@ -728,14 +716,6 @@
         "stoppoint_id": {
           "type": "string",
           "x-go-name": "StoppointID"
-        },
-        "aha_status": {
-          "type": "string",
-          "enum": [
-            "Claim approve",
-            "Claim reject"
-          ],
-          "x-go-name": "AhaStatus"
         }
       }
     },
@@ -774,6 +754,14 @@
         "order_time"
       ],
       "properties": {
+        "aha_status": {
+          "type": "string",
+          "enum": [
+            "Claim approve",
+            "Claim reject"
+          ],
+          "x-go-name": "AhaStatus"
+        },
         "policy_id": {
           "type": "string",
           "x-go-name": "PolicyID"
