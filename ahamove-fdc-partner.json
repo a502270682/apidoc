@@ -563,7 +563,7 @@
         }
       }
     },
-    "/v1/partner/policyAndClaims/delete": {
+    "/v1/transit-ahamove-fdc/partner/policyAndClaims/delete": {
       "post": {
         "tags": [
           "PartnerAPI"
