@@ -562,6 +562,31 @@
           }
         }
       }
+    },
+    "/v1/partner/policyAndClaims/delete": {
+      "post": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "DeletePolicyAndClaims",
+        "parameters": [
+          {
+            "name": "DeletePolicyAndClaimsReq",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/DeletePolicyAndClaimsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/DeletePolicyAndClaimsRes"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1148,6 +1173,31 @@
       "properties": {
         "claim": {
           "$ref": "#/definitions/ClaimInfo"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "DeletePolicyAndClaimsReq": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "DeletePolicyAndClaimsRes": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "x-go-name": "Message"
+        },
+        "ok": {
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Ok"
         }
       },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
