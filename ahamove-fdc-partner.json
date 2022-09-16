@@ -697,12 +697,12 @@
         "state": {
           "type": "string",
           "enum": [
-            "Claim requested",
-            "Claim approve",
-            "Claim reject",
-            "Reimburse pending",
-            "Reimburse updated",
-            "Claim complete"
+            "ClaimRequested",
+            "ClaimApproved",
+            "ClaimRejected",
+            "PendingProof",
+            "ClaimCompleted",
+            "ClaimCanceled"
           ],
           "x-go-name": "State"
         }
@@ -1078,6 +1078,11 @@
           "type": "string",
           "x-go-name": "Coi"
         },
+        "coverage_amount": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "CoverageAmount"
+        },
         "driver_email": {
           "description": "needed, email of driver",
           "type": "string",
@@ -1112,24 +1117,20 @@
           "format": "int64",
           "x-go-name": "PolicyStartDate"
         },
-        "state": {
-          "enum": [
-            "Issued",
-            "Active",
-            "Expired"
-          ],
-          "type": "string",
-          "x-go-name": "State"
-        },
-        "coverage_amount": {
-          "type": "number",
-          "format": "double",
-          "x-go-name": "CoverageAmount"
-        },
         "premium_amount": {
           "type": "number",
           "format": "double",
           "x-go-name": "PremiumAmount"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "PolicyIssued",
+            "PolicyCancelled",
+            "PolicyActivated",
+            "PolicyExpired"
+          ],
+          "x-go-name": "State"
         }
       },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
