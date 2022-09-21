@@ -1078,11 +1078,6 @@
           "type": "string",
           "x-go-name": "Coi"
         },
-        "coverage_amount": {
-          "type": "number",
-          "format": "double",
-          "x-go-name": "CoverageAmount"
-        },
         "driver_email": {
           "description": "needed, email of driver",
           "type": "string",
