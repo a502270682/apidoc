@@ -417,6 +417,31 @@
         }
       }
     },
+    "/v1/ahamove-fdc/partner/policy/active/{driver_id}": {
+      "get": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "GetActivePolicyInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "DriverID",
+            "name": "driver_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/GetActivePolicyInfoRes"
+            }
+          }
+        }
+      }
+    },
     "/v1/transit-ahamove-fdc/partner/policy/create_policy": {
       "post": {
         "tags": [
@@ -1037,6 +1062,15 @@
           "description": "Detailed description of the type Erroror",
           "type": "string",
           "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+    },
+    "GetActivePolicyInfoRes": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/PolicyInfo"
         }
       },
       "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
