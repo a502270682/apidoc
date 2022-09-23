@@ -417,7 +417,7 @@
         }
       }
     },
-    "/v1/ahamove-fdc/partner/policy/active/{driver_id}": {
+    "/v1/transit-ahamove-fdc/partner/policy/active/{driver_id}": {
       "get": {
         "tags": [
           "PartnerAPI"
