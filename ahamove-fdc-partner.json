@@ -91,6 +91,73 @@
         }
       }
     },
+    "/v1/transit-ahamove-fdc/partner/claim_link": {
+      "post": {
+        "tags": [
+          "PartnerAPI"
+        ],
+        "operationId": "ClaimLink",
+        "parameters": [
+          {
+            "name": "ClaimLinkReq",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ClaimLinkReq"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorBadRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorUnauthorized"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorForbidden"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/ErrorConflict"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/ErrorTooManyRequests"
+            }
+          },
+          "500": {
+            "description": "Server Errors",
+            "schema": {
+              "$ref": "#/definitions/ErrorServerErrors"
+            }
+          },
+          "default": {
+            "description": "Unknown Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorDefault"
+            }
+          }
+        }
+      }
+    },
     "/v1/transit-ahamove-fdc/partner/claims": {
       "get": {
         "tags": [
@@ -417,31 +484,6 @@
         }
       }
     },
-    "/v1/transit-ahamove-fdc/partner/policy/active/{driver_id}": {
-      "get": {
-        "tags": [
-          "PartnerAPI"
-        ],
-        "operationId": "GetActivePolicyInfo",
-        "parameters": [
-          {
-            "type": "string",
-            "x-go-name": "DriverID",
-            "name": "driver_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "schema": {
-              "$ref": "#/definitions/GetActivePolicyInfoRes"
-            }
-          }
-        }
-      }
-    },
     "/v1/transit-ahamove-fdc/partner/policy/create_policy": {
       "post": {
         "tags": [
@@ -631,11 +673,11 @@
           "x-go-name": "ClaimState"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
     },
     "NoticeClaimStateRes": {
       "type": "object",
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
     },
     "NoticePolicyStateReqBody": {
       "type": "object",
@@ -654,11 +696,27 @@
           "x-go-name": "State"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+    },
+    "ClaimLinkReq": {
+      "type": "object",
+      "required": [
+        "policy_id"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "language": {
+          "type": "string",
+          "x-go-name": "Language"
+        }
+      }
     },
     "NoticePolicyStateRes": {
       "type": "object",
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/pkg/dto"
     },
     "BankInfo": {
       "type": "object",
@@ -686,7 +744,7 @@
           "x-go-name": "BranchAt"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ClaimInfo": {
       "type": "object",
@@ -732,7 +790,7 @@
           "x-go-name": "State"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ClaimItem":{
       "type": "object",
@@ -785,7 +843,7 @@
           "x-go-name": "Total"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ClaimListRes": {
       "type": "object",
@@ -794,7 +852,7 @@
           "$ref": "#/definitions/ClaimList"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "CreateClaimReq": {
       "type": "object",
@@ -834,7 +892,7 @@
           "x-go-name": "ClaimItems"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "CreateClaimRes": {
       "type": "object",
@@ -843,7 +901,7 @@
           "$ref": "#/definitions/ClaimInfo"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "CreatePolicyReq": {
       "type": "object",
@@ -885,7 +943,7 @@
           "x-go-name": "PurchasedTimestamp"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "CreatePolicyRes": {
       "type": "object",
@@ -894,7 +952,7 @@
           "$ref": "#/definitions/PolicyInfo"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "Error": {
       "description": "Error",
@@ -911,7 +969,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorBadRequest": {
       "description": "Bad Request",
@@ -928,7 +986,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorConflict": {
       "description": "Conflict",
@@ -945,7 +1003,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorDefault": {
       "description": "Unknown Error",
@@ -962,7 +1020,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorForbidden": {
       "description": "Forbidden",
@@ -979,7 +1037,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorNotFound": {
       "description": "Not found",
@@ -996,7 +1054,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorRequestFailed": {
       "description": "Request Failed",
@@ -1013,7 +1071,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorServerErrors": {
       "description": "Server Errors",
@@ -1030,7 +1088,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorTooManyRequests": {
       "description": "Too Many Requests",
@@ -1047,7 +1105,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "ErrorUnauthorized": {
       "description": "Unauthorized",
@@ -1064,16 +1122,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
-    },
-    "GetActivePolicyInfoRes": {
-      "type": "object",
-      "properties": {
-        "policy": {
-          "$ref": "#/definitions/PolicyInfo"
-        }
-      },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "GetClaimRes": {
       "type": "object",
@@ -1082,7 +1131,7 @@
           "$ref": "#/definitions/ClaimInfo"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "GetPolicyInfoRes": {
       "type": "object",
@@ -1091,7 +1140,7 @@
           "$ref": "#/definitions/PolicyInfo"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "GetPolicyListRes": {
       "type": "object",
@@ -1100,7 +1149,7 @@
           "$ref": "#/definitions/PolicyList"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "PolicyInfo": {
       "type": "object",
@@ -1162,7 +1211,7 @@
           "x-go-name": "State"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "PolicyList": {
       "type": "object",
@@ -1180,7 +1229,7 @@
           "x-go-name": "Total"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "UpdateBankInfoReq": {
       "type": "object",
@@ -1196,7 +1245,7 @@
           "x-go-name": "PolicyID"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "UpdateBankInfoRes": {
       "type": "object",
@@ -1205,7 +1254,7 @@
           "$ref": "#/definitions/ClaimInfo"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "DeletePolicyAndClaimsReq": {
       "type": "object",
@@ -1215,7 +1264,7 @@
           "x-go-name": "PolicyID"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     },
     "DeletePolicyAndClaimsRes": {
       "type": "object",
@@ -1230,7 +1279,7 @@
           "x-go-name": "Ok"
         }
       },
-      "x-go-package": "gitlab.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
+      "x-go-package": "gitlab.iglooinsure.com/axinan/backend/transit/ahamove-fdc/internal/restapi"
     }
   },
   "securityDefinitions": {
