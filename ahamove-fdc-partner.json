@@ -107,6 +107,12 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/ClaimLinkRes"
+            }
+          },
           "400": {
             "description": "Bad Request",
             "schema": {
@@ -711,6 +717,15 @@
         "language": {
           "type": "string",
           "x-go-name": "Language"
+        }
+      }
+    },
+    "ClaimLinkRes": {
+      "type": "object",
+      "properties": {
+        "link": {
+          "type": "string",
+          "x-go-name": "Link"
         }
       }
     },
