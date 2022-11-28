@@ -1,6 +1,6 @@
 basePath: /
 consumes:
-- application/json
+  - application/json
 definitions:
   Error:
     description: Error
@@ -175,13 +175,13 @@ definitions:
         x-go-name: ProductType
       suggestion_type:
         enum:
-        - motor_not_found
-        - product_commit
+          - motor_not_found
+          - product_commit
         type: string
         x-go-name: SuggestionType
     required:
-    - full_name
-    - email
+      - full_name
+      - email
     type: object
     x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
   SubmitMessageRes:
@@ -1838,12 +1838,18 @@ definitions:
       external_id:
         type: string
         x-go-name: ExternalID
+      fast_quote:
+        type: object
+        x-go-name: FastQuote
       id:
         type: string
         x-go-name: ID
       insured_amount:
         type: string
         x-go-name: InsuredAmount
+      meta:
+        type: object
+        x-go-name: Meta
       origin_id:
         type: integer
         format: uint64
@@ -2511,7 +2517,7 @@ parameters:
     name: region
     in: path
     required: true
-host: localhost:8080
+host: api.staging.iglooinsure.com
 info:
   description: Your description
   title: transit-mall-my API
@@ -2527,42 +2533,263 @@ paths:
         - $ref: '#/parameters/product_type'
         - $ref: '#/parameters/product_key'
         - $ref: '#/parameters/plan_key'
-#        - description: quotation form
-#          name: quotation
-#          in: body
-#          required: true
-#          schema:
-#            type: object
-#            required:
-#              - fast_quote
-#            properties:
-#              fast_quote:
-#                description: fast_quote object
-#                type: object
+        - description: quotation form
+          name: quotation
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - fast_quote
+            properties:
+              fast_quote:
+                description: fast_quote object
+                type: object
       responses:
         "200":
           description: Success
           schema:
             $ref: '#/definitions/QuotationItem'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}/quotation/{quotation_id}:
+    get:
+      summary: get quotation
+      operationId: GetQuotation
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - type: string
+          name: quotation_id
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/QuotationItem'
+    put:
+      summary: update quotation
+      operationId: UpdateQuotation
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - type: string
+          name: quotation_id
+          in: path
+          required: true
+        - description: quotation form
+          name: quotation
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - fast_quote
+            properties:
+              external_id:
+                description: external id
+                type: string
+              fast_quote:
+                description: fast_quote object
+                type: object
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/QuotationItem'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}/quotation/{quotation_id}/state:
+    put:
+      summary: confirm quotation
+      operationId: ConfirmQuotation
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - type: string
+          name: quotation_id
+          in: path
+          required: true
+        - description: quotation state
+          name: state
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              external_id:
+                type: string
+              state:
+                type: string
+                enum:
+                  - Confirmed
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/QuotationItem'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/applications/{app_id}/payment:
+    post:
+      summary: init payment for application
+      operationId: InitApplicationPayment
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/app_id'
+        - $ref: '#/parameters/lang'
+        - name: Body
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - succeed_redirect_url
+              - failed_redirect_url
+              - pending_redirect_url
+            properties:
+              cancel:
+                description: cancel pending payment
+                type: boolean
+              failed_redirect_url:
+                description: redirect url when failed
+                type: string
+              pending_redirect_url:
+                description: redirect url when pending
+                type: string
+              succeed_redirect_url:
+                description: redirect url when succeed
+                type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: object
+            properties:
+              redirect_to:
+                description: the url should redirect to
+                type: string
+              transaction:
+                $ref: '#/definitions/TransactionView'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}/application_config:
+    get:
+      summary: get application config
+      operationId: GetApplicationConfig
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - $ref: '#/parameters/lang'
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: object
+            properties:
+              config:
+                description: json object for application config
+                type: object
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}/applications:
+    post:
+      summary: submit application
+      operationId: SubmitApplication
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - $ref: '#/parameters/lang'
+        - description: application form
+          name: application_form
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - application
+            properties:
+              application:
+                description: application object
+                type: object
+              fast_quote:
+                description: fast_quote object
+                type: object
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/AdditionalApplication'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/plans:
+    get:
+      summary: plans list
+      operationId: PlanList
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/lang'
+        - type: string
+          description: json string
+          name: query
+          in: query
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: object
+            properties:
+              plans:
+                type: array
+                items:
+                  $ref: '#/definitions/AdditionalPlan'
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}:
+    get:
+      summary: search plans in product_type
+      operationId: SearchPlanList
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+        - $ref: '#/parameters/lang'
+        - type: string
+          description: json string
+          name: query
+          in: query
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/TurboPlan'
   /v1/transit-mall-my/public/car/info:
     get:
       operationId: GetCarInfo
       parameters:
-      - in: query
-        name: vehicle_plate_number
-        required: true
-        type: string
-        x-go-name: VehiclePlateNumber
-      - in: query
-        name: nric
-        required: true
-        type: string
-        x-go-name: Nric
-      - in: query
-        name: post_code
-        required: true
-        type: string
-        x-go-name: PostCode
+        - in: query
+          name: vehicle_plate_number
+          required: true
+          type: string
+          x-go-name: VehiclePlateNumber
+        - in: query
+          name: nric
+          required: true
+          type: string
+          x-go-name: Nric
+        - in: query
+          name: post_code
+          required: true
+          type: string
+          x-go-name: PostCode
       responses:
         "200":
           description: success
@@ -2601,15 +2828,15 @@ paths:
           schema:
             $ref: '#/definitions/ErrorDefault'
       tags:
-      - Public
+        - Public
   /v1/transit-mall-my/public/submit/message:
     post:
       operationId: SubmitMessage
       parameters:
-      - in: body
-        name: SubmitMessageReq
-        schema:
-          $ref: '#/definitions/SubmitMessageReq'
+        - in: body
+          name: SubmitMessageReq
+          schema:
+            $ref: '#/definitions/SubmitMessageReq'
       responses:
         "200":
           description: success
@@ -2648,14 +2875,14 @@ paths:
           schema:
             $ref: '#/definitions/ErrorDefault'
       tags:
-      - Public
+        - Public
 produces:
-- application/json
+  - application/json
 schemes:
-- http
-- https
+  - http
+  - https
 security:
-- api_key: []
+  - api_key: []
 securityDefinitions:
   api_key:
     in: header
