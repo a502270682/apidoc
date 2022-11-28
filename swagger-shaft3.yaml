@@ -1,0 +1,2664 @@
+basePath: /
+consumes:
+- application/json
+definitions:
+  Error:
+    description: Error
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorBadRequest:
+    description: Bad Request
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorConflict:
+    description: Conflict
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorDefault:
+    description: Unknown Error
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorForbidden:
+    description: Forbidden
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorNotFound:
+    description: Not found
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorRequestFailed:
+    description: Request Failed
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorServerErrors:
+    description: Server Errors
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorTooManyRequests:
+    description: Too Many Requests
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  ErrorUnauthorized:
+    description: Unauthorized
+    properties:
+      code:
+        description: A short string with a brief explanation of the type Erroror
+        type: string
+        x-go-name: Code
+      message:
+        description: Detailed description of the type Erroror
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  GetCarInfoRes:
+    properties:
+      agreed_value_allowed:
+        type: boolean
+        x-go-name: AgreedValueAllowed
+      ncd_info:
+        $ref: '#/definitions/Ncd'
+      vix_info:
+        $ref: '#/definitions/Vix'
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  Ncd:
+    properties:
+      ncd_entitlement:
+        type: string
+        x-go-name: NcdEntitlement
+      policy_effective_date:
+        type: string
+        x-go-name: PolicyEffectiveDate
+      policy_expiry_date:
+        type: string
+        x-go-name: PolicyExpiryDate
+      policy_no:
+        type: string
+        x-go-name: PolicyNo
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  SubmitMessageReq:
+    properties:
+      email:
+        type: string
+        x-go-name: Email
+      full_name:
+        type: string
+        x-go-name: FullName
+      mobile_phone:
+        type: string
+        x-go-name: MobilePhone
+      product_type:
+        type: string
+        x-go-name: ProductType
+      suggestion_type:
+        enum:
+        - motor_not_found
+        - product_commit
+        type: string
+        x-go-name: SuggestionType
+    required:
+    - full_name
+    - email
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  SubmitMessageRes:
+    properties:
+      message:
+        type: string
+        x-go-name: Message
+      ok:
+        format: int64
+        type: integer
+        x-go-name: Ok
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  Vix:
+    properties:
+      engine_capacity:
+        type: string
+        x-go-name: EngineCapacity
+      make:
+        type: string
+        x-go-name: Make
+      model:
+        type: string
+        x-go-name: Model
+      variant:
+        type: string
+        x-go-name: Variant
+      year_of_manufacture:
+        type: string
+        x-go-name: YearOfManufacture
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/transit/mall-my/internal/restapi
+  AddON:
+    type: object
+    properties:
+      coverage:
+        type: number
+        format: double
+        x-go-name: Coverage
+      label:
+        type: string
+        x-go-name: Label
+      sub_plan:
+        type: string
+        x-go-name: SubPlan
+      value:
+        type: string
+        x-go-name: Value
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  AddONBenefit:
+    type: object
+    properties:
+      coverage:
+        type: number
+        format: double
+        x-go-name: SumInsured
+      name:
+        type: string
+        x-go-name: Code
+      premium:
+        type: number
+        format: double
+        x-go-name: Premium
+      type:
+        type: string
+        x-go-name: Type
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  AddOnDto:
+    type: object
+    properties:
+      add_on_id:
+        type: integer
+        format: int64
+        x-go-name: AddOnID
+      enable:
+        type: boolean
+        x-go-name: Enable
+      max_coverage:
+        $ref: '#/definitions/Decimal'
+      name:
+        type: string
+        x-go-name: Name
+      option:
+        type: object
+        x-go-name: Option
+      premium:
+        $ref: '#/definitions/Decimal'
+      prerequisite:
+        type: integer
+        format: int64
+        x-go-name: Prerequisite
+      required:
+        type: boolean
+        x-go-name: Required
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/pkg/defines/id/motor
+  AddOnsDto:
+    type: object
+    properties:
+      add_ons:
+        type: array
+        items:
+          $ref: '#/definitions/AddOnDto'
+        x-go-name: AddOns
+      total_premium:
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/pkg/defines/id/motor
+  AdditionalApplication:
+    type: object
+    properties:
+      addl_data:
+        $ref: '#/definitions/ApplicationAdditionalData'
+      object:
+        $ref: '#/definitions/TurboApplication'
+  AdditionalPlan:
+    type: object
+    properties:
+      addl_data:
+        $ref: '#/definitions/PlanAdditionalData'
+      object:
+        $ref: '#/definitions/TurboPlan'
+  ApplicationAdditionalData:
+    type: object
+    properties:
+      discount_base_premium:
+        $ref: '#/definitions/Decimal'
+      discount_percent:
+        type: number
+        format: double
+        x-go-name: DiscountPercent
+      discount_percent_off:
+        type: number
+        format: double
+        x-go-name: DiscountPercentOff
+      discount_total_premium:
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/b2c/id/motor/dto
+  ApplicationItem:
+    type: object
+    properties:
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreateAt
+      external_id:
+        type: string
+        x-go-name: ExternalID
+      fast_quote:
+        type: object
+        x-go-name: FastQuote
+      form:
+        type: object
+        x-go-name: Form
+      id:
+        type: string
+        x-go-name: ID
+      insure_process_id:
+        type: string
+        x-go-name: InsureProcessID
+      insured_amount:
+        type: string
+        x-go-name: InsuredAmount
+      meta:
+        type: object
+        x-go-name: Meta
+      origin_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginID
+      origin_quotation_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginQuotationID
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      policy:
+        $ref: '#/definitions/PolicyListItem'
+      premium_amount:
+        type: string
+        x-go-name: PremiumAmount
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      quotation_id:
+        type: string
+        x-go-name: QuotationID
+      state:
+        type: string
+        x-go-name: State
+      under_writing:
+        $ref: '#/definitions/UnderWritingItem'
+      updated_at:
+        type: integer
+        format: int64
+        x-go-name: UpdateAt
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  ApplicationResult:
+    $ref: '#/definitions/PlanApplyRes'
+  AttachmentDescription:
+    type: object
+    properties:
+      url:
+        type: string
+        x-go-name: URL
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  Brand:
+    type: object
+    properties:
+      category:
+        $ref: '#/definitions/VehicleCategory'
+      name:
+        type: string
+        x-go-name: Name
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  BrandListReq:
+    type: object
+    properties:
+      Category:
+        $ref: '#/definitions/VehicleCategory'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  BrandListRsp:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Brand'
+        x-go-name: Data
+      total:
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  CMSProductDetail:
+    type: object
+    properties:
+      data:
+        type: object
+        x-go-name: Data
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/vn/health/dto
+  CancelTransactionReq:
+    type: object
+    required:
+      - state
+    properties:
+      state:
+        description: state
+        type: string
+        enum:
+          - canceled
+        x-go-name: State
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  CancelTransactionRes:
+    $ref: '#/definitions/TransactionNoti'
+  Commission:
+    type: object
+    properties:
+      commission_rate:
+        $ref: '#/definitions/Decimal'
+      point_rate:
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/define
+  ConfirmQuotationReqBody:
+    type: object
+    properties:
+      quotation_id:
+        type: integer
+        format: int64
+        x-go-name: QuotationID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  ConfirmQuotationRes:
+    $ref: '#/definitions/QuotationItem'
+  ContentSegment:
+    type: object
+    properties:
+      header:
+        type: string
+        x-go-name: Header
+      key:
+        type: string
+        x-go-name: Key
+      texts:
+        type: array
+        items:
+          $ref: '#/definitions/TextDescription'
+        x-go-name: Texts
+      urls:
+        type: array
+        items:
+          $ref: '#/definitions/URLDescription'
+        x-go-name: URLs
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  Cookie:
+    description: See https://tools.ietf.org/html/rfc6265 for details.
+    type: object
+    title: |-
+      A Cookie represents an HTTP cookie as sent in the Set-Cookie header of an
+      HTTP response or the Cookie header of an HTTP request.
+    properties:
+      Domain:
+        type: string
+      Expires:
+        type: string
+        format: date-time
+      HttpOnly:
+        type: boolean
+      MaxAge:
+        description: |-
+          MaxAge=0 means no 'Max-Age' attribute specified.
+          MaxAge<0 means delete cookie now, equivalently 'Max-Age: 0'
+          MaxAge>0 means Max-Age attribute present and given in seconds
+        type: integer
+        format: int64
+      Name:
+        type: string
+      Path:
+        type: string
+      Raw:
+        type: string
+      RawExpires:
+        type: string
+      SameSite:
+        $ref: '#/definitions/SameSite'
+      Secure:
+        type: boolean
+      Unparsed:
+        type: array
+        items:
+          type: string
+      Value:
+        type: string
+    x-go-package: net/http
+  CoverageItem:
+    type: object
+    properties:
+      coverage_code:
+        type: string
+        x-go-name: CoverageCode
+      coverage_key:
+        type: string
+        x-go-name: CoverageKey
+      coverage_name:
+        type: string
+        x-go-name: CoverageName
+      coverage_soi_type:
+        type: string
+        x-go-name: CoverageSOIType
+      coverage_type:
+        type: string
+        x-go-name: CoverageType
+      description:
+        type: string
+        x-go-name: Description
+      extra:
+        type: string
+        x-go-name: Extra
+      for_application:
+        type: boolean
+        x-go-name: ForApplication
+      value:
+        type: string
+        x-go-name: Value
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  CreateApplicationReqBody:
+    type: object
+    properties:
+      application:
+        description: json raw message for application
+        type: object
+        x-go-name: Application
+      external_id:
+        type: string
+        x-go-name: ExternalID
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  CreateApplicationRes:
+    type: object
+    properties:
+      application_id:
+        type: integer
+        format: int64
+        x-go-name: ApplicationID
+      policy_id:
+        type: integer
+        format: int64
+        x-go-name: PolicyID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  CreateApplicationResult:
+    $ref: '#/definitions/CreateApplicationRes'
+  CreateQuotationReqBody:
+    type: object
+    properties:
+      external_id:
+        type: string
+        x-go-name: ExternalID
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  CreateQuotationRes:
+    $ref: '#/definitions/QuotationItem'
+  CustomerService:
+    type: object
+    properties:
+      email:
+        type: string
+        x-go-name: Email
+      phone:
+        type: string
+        x-go-name: Phone
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/entity
+  DateRange:
+    type: object
+    properties:
+      base:
+        type: string
+        x-go-name: Base
+      max:
+        $ref: '#/definitions/DateRangeDesc'
+      min:
+        $ref: '#/definitions/DateRangeDesc'
+      type:
+        type: string
+        x-go-name: Type
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/travel/dto
+  DateRangeDesc:
+    type: object
+    properties:
+      quantity:
+        type: integer
+        format: int64
+        x-go-name: Quantity
+      type:
+        type: string
+        x-go-name: Type
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/travel/dto
+  Decimal:
+    description: number = value * 10 ^ exp
+    type: object
+    title: Decimal represents a fixed-point decimal. It is immutable.
+    x-go-package: github.com/shopspring/decimal
+  DeductionAuthInput:
+    type: object
+    required:
+      - service
+      - user_id
+      - notify_url
+      - succeed_redirect_url
+      - failed_redirect_url
+      - pending_redirect_url
+    properties:
+      customer_service:
+        $ref: '#/definitions/CustomerService'
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      notify_url:
+        description: callback url for service backend to receive payment notification
+        type: string
+        x-go-name: NotifyURL
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/factory
+  DeductionAuthView:
+    type: object
+    properties:
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      providers:
+        description: available providers, should be displayed in this order
+        type: array
+        items:
+          $ref: '#/definitions/DeductionAuthViewProvider'
+        x-go-name: Providers
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      used_provider:
+        description: actually used provider
+        type: string
+        x-go-name: UsedProvider
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  DeductionAuthViewProvider:
+    type: object
+    properties:
+      is_authed:
+        description: auth state
+        type: boolean
+        x-go-name: IsAuthed
+      name:
+        description: provider name
+        type: string
+        x-go-name: Name
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  DelayTaskHandlerReq:
+    type: object
+    properties:
+      handle_name:
+        type: string
+        x-go-name: HandleName
+      payload:
+        type: array
+        items:
+          type: integer
+          format: uint8
+        x-go-name: Payload
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  DelayTaskHandlerRes:
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  DemoReqBody:
+    type: object
+    properties:
+      application:
+        description: json raw message for application
+        type: object
+        x-go-name: Application
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  DemoRes:
+    $ref: '#/definitions/PolicyListItem'
+  DiscountOutput:
+    type: object
+    properties:
+      discount_base_premium:
+        $ref: '#/definitions/Decimal'
+      discount_percent:
+        type: number
+        format: double
+        x-go-name: DiscountPercent
+      discount_percent_off:
+        type: number
+        format: double
+        x-go-name: DiscountPercentOff
+      discount_total_premium:
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/b2c/id/motor/dto
+  DropDownOption:
+    type: object
+    properties:
+      label:
+        type: string
+        x-go-name: Label
+      value:
+        type: string
+        x-go-name: Value
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  EditPayoutAccountReq:
+    $ref: '#/definitions/PayoutAccountInput'
+  EditPayoutAccountRes:
+    type: object
+    properties:
+      account:
+        $ref: '#/definitions/PayoutAccount'
+      redirect_to:
+        description: |-
+          service frontend should redirect to this url to edit payout account
+
+          This url contains a query string 'token=[token]'
+        type: string
+        x-go-name: RedirectTo
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExecDeductionReq:
+    type: object
+    properties:
+      amount:
+        description: payment amount
+        type: string
+        x-go-name: Amount
+      currency:
+        description: currency unit
+        type: string
+        x-go-name: Currency
+      description:
+        description: transaction description, can be a multilines text
+        type: string
+        x-go-name: Description
+      item_info:
+        description: item details info, use for payment
+        type: array
+        items:
+          $ref: '#/definitions/ItemInfoView'
+        x-go-name: ItemInfo
+      notify_url:
+        description: callback url for service backend to receive payment notification
+        type: string
+        x-go-name: NotifyURL
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      service_txn_id:
+        description: |-
+          ServiceTxnID is transaction in service.
+
+          there is at most one pending or succeed transaction for each ServiceTxnID in one service
+        type: string
+        x-go-name: ServiceTxnID
+      title:
+        description: transaction title, one line text
+        type: string
+        x-go-name: Title
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExecDeductionRes:
+    type: object
+    properties:
+      transaction:
+        $ref: '#/definitions/TransactionView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExecPayoutReq:
+    type: object
+    properties:
+      amount:
+        description: payment amount
+        type: string
+        x-go-name: Amount
+      currency:
+        description: currency unit
+        type: string
+        x-go-name: Currency
+      description:
+        description: transaction description, can be a multilines text
+        type: string
+        x-go-name: Description
+      item_info:
+        description: item details info, use for payment
+        type: array
+        items:
+          $ref: '#/definitions/ItemInfoView'
+        x-go-name: ItemInfo
+      notify_url:
+        description: callback url for service backend to receive payment notification
+        type: string
+        x-go-name: NotifyURL
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      service_txn_id:
+        description: |-
+          ServiceTxnID is transaction in service.
+
+          there is at most one pending or succeed transaction for each ServiceTxnID in one service
+        type: string
+        x-go-name: ServiceTxnID
+      specified_provider:
+        description: specify payout provider
+        type: string
+        x-go-name: SpecifiedProvider
+      title:
+        description: transaction title, one line text
+        type: string
+        x-go-name: Title
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExecPayoutRes:
+    type: object
+    properties:
+      transaction:
+        $ref: '#/definitions/TransactionView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExecRefundRes:
+    type: object
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  ExternalConfigAPIUnit:
+    type: object
+    properties:
+      api_key:
+        type: string
+        x-go-name: APIKey
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ExternalConfigItem'
+        x-go-name: Items
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/values
+  ExternalConfigAPIUnits:
+    type: object
+    properties:
+      api_configs:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/ExternalConfigAPIUnit'
+        x-go-name: APIConfigs
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/values
+  ExternalConfigItem:
+    type: object
+    properties:
+      config:
+        type: object
+        x-go-name: Config
+      config_type:
+        type: string
+        x-go-name: ConfigType
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreatedAt
+      field_type:
+        type: string
+        x-go-name: FieldType
+      path:
+        type: string
+        x-go-name: Path
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/values
+  FileHeader:
+    type: object
+    title: A FileHeader describes a file part of a multipart request.
+    properties:
+      Filename:
+        type: string
+      Header:
+        $ref: '#/definitions/MIMEHeader'
+      Size:
+        type: integer
+        format: int64
+    x-go-package: mime/multipart
+  FlowConfigItem:
+    type: object
+    properties:
+      config:
+        type: object
+        x-go-name: Config
+      flow_type:
+        type: string
+        x-go-name: FlowType
+      job_id:
+        type: string
+        x-go-name: JobID
+      job_state:
+        type: string
+        x-go-name: JobState
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  GetApplicationDetailRes:
+    $ref: '#/definitions/ApplicationItem'
+  GetApplicationListRes:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationItem'
+        x-go-name: Data
+      total:
+        description: total item count
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetDeductionAuthRes:
+    type: object
+    properties:
+      deduction_auth:
+        $ref: '#/definitions/DeductionAuthView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  GetDropDownOptionListRes:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/DropDownOption'
+        x-go-name: Data
+      total:
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetFieldsConfigRes:
+    $ref: '#/definitions/ExternalConfigAPIUnits'
+  GetFlowsConfigRes:
+    type: object
+    properties:
+      flows:
+        type: array
+        items:
+          $ref: '#/definitions/FlowConfigItem'
+        x-go-name: Flows
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetPayoutAccountByIDRes:
+    type: object
+    properties:
+      account:
+        $ref: '#/definitions/PayoutAccount'
+      bank_provider:
+        type: string
+        x-go-name: BankProvider
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  GetPayoutAccountByUserRes:
+    type: object
+    properties:
+      account:
+        $ref: '#/definitions/PayoutAccount'
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/PayoutAccount'
+        x-go-name: Accounts
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  GetPlanDetailRes:
+    $ref: '#/definitions/PlanItem'
+  GetPlanListRes:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/PlanItem'
+        x-go-name: Data
+      total:
+        description: total item count
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetPolicyDetailRes:
+    $ref: '#/definitions/PolicyListItem'
+  GetPolicyListRes:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/PolicyListItem'
+        x-go-name: Data
+      total:
+        description: total item count
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetProductDetailRes:
+    $ref: '#/definitions/ProductItem'
+  GetProductListRes:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ProductItem'
+        x-go-name: Data
+      total:
+        description: total item count
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  GetQuotationDetailRes:
+    $ref: '#/definitions/QuotationItem'
+  GetTransactionRes:
+    type: object
+    properties:
+      transaction:
+        $ref: '#/definitions/TransactionView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  GetTransactionStateRes:
+    type: object
+    properties:
+      state:
+        description: transaction state
+        type: string
+        enum:
+          - created
+          - pending
+          - succeed
+          - failed
+        x-go-name: State
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  InitCheckoutReq:
+    $ref: '#/definitions/TransactionInput'
+  InitCheckoutRes:
+    type: object
+    properties:
+      redirect_to:
+        description: service frontend should redirect to this url to start checkout, with query string 'token=[token]'
+        type: string
+        x-go-name: RedirectTo
+      transaction:
+        $ref: '#/definitions/TransactionView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  InitCheckoutResult:
+    type: object
+    properties:
+      redirect_to:
+        type: string
+        x-go-name: RedirectTo
+      transaction:
+        $ref: '#/definitions/TransactionView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/core/val
+  InitDeductionAuthReq:
+    $ref: '#/definitions/DeductionAuthInput'
+  InitDeductionAuthRes:
+    type: object
+    properties:
+      deduction_auth:
+        $ref: '#/definitions/DeductionAuthView'
+      redirect_to:
+        description: |-
+          service frontend should redirect to this url to start deduct provider setting
+
+          This url contains a query string 'token=[token]'
+        type: string
+        x-go-name: RedirectTo
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  InternalGetFlowsConfigRes:
+    type: object
+    properties:
+      flows:
+        type: array
+        items:
+          $ref: '#/definitions/FlowConfigItem'
+        x-go-name: Flows
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  InternalTriggerFlowReqBody:
+    type: object
+    properties:
+      action:
+        type: string
+        x-go-name: Action
+      form:
+        description: form data for trigger action
+        type: object
+        x-go-name: Form
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  InternalTriggerFlowRes:
+    type: object
+    properties:
+      msg:
+        type: string
+        x-go-name: Msg
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  ItemInfoInput:
+    type: object
+    required:
+      - name
+      - count
+      - unit_price
+    properties:
+      count:
+        type: integer
+        format: uint64
+        x-go-name: Count
+      merchant_name:
+        type: string
+        x-go-name: MerchantName
+      name:
+        type: string
+        x-go-name: Name
+      unit_price:
+        type: string
+        x-go-name: UnitPrice
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/factory
+  ItemInfoView:
+    type: object
+    required:
+      - name
+      - count
+      - unit_price
+    properties:
+      count:
+        type: integer
+        format: uint64
+        x-go-name: Count
+      name:
+        type: string
+        x-go-name: Name
+      unit_price:
+        type: string
+        x-go-name: UnitPrice
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  MIMEHeader:
+    description: |-
+      A MIMEHeader represents a MIME-style header mapping
+      keys to sets of values.
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    x-go-package: net/textproto
+  Model:
+    type: object
+    properties:
+      Series:
+        type: string
+      brand:
+        type: string
+        x-go-name: Brand
+      category:
+        $ref: '#/definitions/VehicleCategory'
+      code:
+        type: string
+        x-go-name: Code
+      prices:
+        $ref: '#/definitions/VehiclePrices'
+      type:
+        type: string
+        x-go-name: Type
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelSeriesListReq:
+    type: object
+    properties:
+      Brand:
+        type: string
+      Category:
+        $ref: '#/definitions/VehicleCategory'
+      Type:
+        type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelSeriesListRsp:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Model'
+        x-go-name: Data
+      total:
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelSeriesPriceReq:
+    type: object
+    properties:
+      Brand:
+        type: string
+      Category:
+        $ref: '#/definitions/VehicleCategory'
+      Series:
+        type: string
+      Year:
+        type: integer
+        format: int64
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelSeriesPriceRsp:
+    type: object
+    properties:
+      price:
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelTypeListReq:
+    type: object
+    properties:
+      Brand:
+        type: string
+      Category:
+        $ref: '#/definitions/VehicleCategory'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ModelTypeListRsp:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: string
+        x-go-name: Data
+      total:
+        type: integer
+        format: int64
+        x-go-name: Total
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  PayAction:
+    type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/entity
+  PaymentNotifyReqBody:
+    type: object
+    properties:
+      failed_msg:
+        type: string
+        x-go-name: FailedMsg
+      service_txn_id:
+        type: string
+        x-go-name: ServiceTxnID
+      state:
+        type: string
+        x-go-name: State
+      transaction_id:
+        type: string
+        x-go-name: TransactionID
+      used_provider:
+        type: string
+        x-go-name: UsedProvider
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PaymentNotifyRes:
+    $ref: '#/definitions/PolicyListItem'
+  PayoutAccount:
+    type: object
+    properties:
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      providers:
+        description: available providers, should be displayed in this order
+        type: array
+        items:
+          $ref: '#/definitions/PayoutAccountProvider'
+        x-go-name: Providers
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      used_provider:
+        description: actually used provider
+        type: string
+        x-go-name: UsedProvider
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  PayoutAccountInput:
+    type: object
+    required:
+      - service
+      - user_id
+      - notify_url
+      - succeed_redirect_url
+      - failed_redirect_url
+      - pending_redirect_url
+    properties:
+      customer_service:
+        $ref: '#/definitions/CustomerService'
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      notify_url:
+        description: callback url for service backend to receive payment notification
+        type: string
+        x-go-name: NotifyURL
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/factory
+  PayoutAccountProvider:
+    type: object
+    properties:
+      data:
+        description: provider data
+        type: object
+        x-go-name: Data
+      enable:
+        description: auth state
+        type: boolean
+        x-go-name: Enable
+      name:
+        description: provider name
+        type: string
+        x-go-name: Name
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  PlanAdditionalData:
+    type: object
+    properties:
+      base_premium:
+        type: number
+        format: double
+        x-go-name: BasePremium
+      discount_base_premium:
+        $ref: '#/definitions/Decimal'
+      discount_percent:
+        type: number
+        format: double
+        x-go-name: DiscountPercent
+      discount_percent_off:
+        type: number
+        format: double
+        x-go-name: DiscountPercentOff
+      discount_total_premium:
+        $ref: '#/definitions/Decimal'
+      plan_type:
+        type: string
+        x-go-name: PlanType
+      premium_info:
+        $ref: '#/definitions/PremiumInfo'
+      sum_insured:
+        type: number
+        format: double
+        x-go-name: SumInsured
+      tags:
+        type: array
+        items:
+          $ref: '#/definitions/PlanTag'
+        x-go-name: Tags
+      total_premium:
+        type: number
+        format: double
+        x-go-name: TotalPremium
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/b2c/id/motor/dto
+  PlanAgeValidation:
+    type: object
+    properties:
+      max:
+        type: integer
+        format: int64
+        x-go-name: Max
+      min:
+        type: integer
+        format: int64
+        x-go-name: Min
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/pa/dto
+  PlanApplyConfigRes:
+    type: object
+    properties:
+      application_config:
+        description: application form config
+        type: object
+        x-go-name: ApplicationConfig
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanApplyReqBody:
+    type: object
+    properties:
+      application:
+        description: json raw message for application
+        type: object
+        x-go-name: Application
+      external_id:
+        type: string
+        x-go-name: ExternalID
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanApplyRes:
+    type: object
+    properties:
+      application_id:
+        type: integer
+        format: int64
+        x-go-name: ApplicationID
+      policy_id:
+        type: integer
+        format: int64
+        x-go-name: PolicyID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanContent:
+    type: object
+    properties:
+      attachments:
+        type: array
+        items:
+          $ref: '#/definitions/AttachmentDescription'
+        x-go-name: Attachments
+      logo_url:
+        type: string
+        x-go-name: LogoURL
+      segments:
+        type: array
+        items:
+          $ref: '#/definitions/ContentSegment'
+        x-go-name: Segments
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  PlanFastQuoteReqBody:
+    type: object
+    properties:
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanFastQuoteRes:
+    type: object
+    properties:
+      meta:
+        type: object
+        x-go-name: Meta
+      premium_amount:
+        type: string
+        x-go-name: PremiumAmount
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanItem:
+    type: object
+    properties:
+      coverages:
+        type: array
+        items:
+          $ref: '#/definitions/CoverageItem'
+        x-go-name: Coverages
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreateAt
+      details:
+        $ref: '#/definitions/PlanContent'
+      id:
+        type: integer
+        format: uint64
+        x-go-name: ID
+      name:
+        type: string
+        x-go-name: Name
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      updated_at:
+        type: integer
+        format: int64
+        x-go-name: UpdateAt
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  PlanQuoteReqBody:
+    type: object
+    properties:
+      application:
+        description: json raw message for application
+        type: object
+        x-go-name: Application
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanQuoteRes:
+    type: object
+    properties:
+      insured_amount:
+        type: string
+        x-go-name: InsuredAmount
+      premium_amount:
+        type: string
+        x-go-name: PremiumAmount
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  PlanTag:
+    type: object
+    properties:
+      key:
+        type: string
+        x-go-name: Key
+      label:
+        type: string
+        x-go-name: Label
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/core/entity
+  PlanValidation:
+    type: object
+    properties:
+      AgencyPlatformVNClientype:
+        type: array
+        items:
+          type: string
+      vehicleType:
+        type: array
+        items:
+          type: string
+        x-go-name: VehicleType
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/vn/pa/dto
+  PlanVehicleAgeValidation:
+    type: object
+    properties:
+      max:
+        type: integer
+        format: int64
+        x-go-name: Max
+      min:
+        type: integer
+        format: int64
+        x-go-name: Min
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  PolicyInfo:
+    type: object
+    properties:
+      end_date:
+        type: string
+        x-go-name: EndDate
+      start_date:
+        type: string
+        x-go-name: StartDate
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  PolicyListItem:
+    type: object
+    properties:
+      PaymentState:
+        type: string
+      application_id:
+        type: string
+        x-go-name: ApplicationID
+      beneficiary:
+        type: object
+        x-go-name: Beneficiary
+      claimable_end_time:
+        type: integer
+        format: int64
+        x-go-name: ClaimableEndTime
+      claimable_start_time:
+        type: integer
+        format: int64
+        x-go-name: ClaimableStartTime
+      coi_doc:
+        type: string
+        x-go-name: COIDoc
+      coi_no:
+        type: string
+        x-go-name: COINo
+      cover_end_time:
+        type: integer
+        format: int64
+        x-go-name: CoverEndTime
+      cover_start_time:
+        type: integer
+        format: int64
+        x-go-name: CoverStartTime
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreatedAt
+      display_id:
+        type: string
+        x-go-name: DisplayID
+      id:
+        type: string
+        x-go-name: ID
+      insured:
+        type: object
+        x-go-name: InsuredInfo
+      insured_amount:
+        type: string
+        x-go-name: InsuredAmount
+      meta:
+        type: object
+        x-go-name: Meta
+      origin_application_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginApplicationID
+      origin_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginID
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      policyHolder:
+        type: object
+        x-go-name: PolicyHolder
+      policy_end_time:
+        type: integer
+        format: int64
+        x-go-name: PolicyEndTime
+      policy_start_time:
+        type: integer
+        format: int64
+        x-go-name: PolicyStartTime
+      preference:
+        type: object
+        x-go-name: Preference
+      premium_amount:
+        type: string
+        x-go-name: PremiumAmount
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      state:
+        type: string
+        x-go-name: State
+      subject:
+        type: object
+        x-go-name: SOIInfo
+      updated_at:
+        type: integer
+        format: int64
+        x-go-name: UpdatedAt
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  PremiumAmountCalOutPut:
+    type: object
+    properties:
+      PlanPremiumAmount:
+        type: number
+        format: double
+      meta:
+        type: object
+        x-go-name: Meta
+    $ref: '#/definitions/PremiumAmountCalOutPut'
+  PremiumInfo:
+    type: object
+    properties:
+      base_premium:
+        type: string
+        x-go-name: BasePremium
+        $ref: '#/definitions/Decimal'
+      max_coverage:
+        type: string
+        x-go-name: MaxCoverage
+        $ref: '#/definitions/Decimal'
+      other_premium:
+        type: array
+        items:
+          $ref: '#/definitions/PremiumItem'
+        x-go-name: OtherPremium
+      sum_insured:
+        type: string
+        x-go-name: SumInsured
+        $ref: '#/definitions/Decimal'
+      total_premium:
+        type: string
+        x-go-name: TotalPremium
+        $ref: '#/definitions/Decimal'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  PremiumItem:
+    type: object
+    properties:
+      amount:
+        $ref: '#/definitions/Decimal'
+      premiumType:
+        $ref: '#/definitions/PremiumType'
+      reason:
+        type: string
+        x-go-name: Reason
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/adapter
+  PremiumType:
+    type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/adapter
+  ProductContent:
+    type: object
+    properties:
+      attachments:
+        type: array
+        items:
+          $ref: '#/definitions/AttachmentDescription'
+        x-go-name: Attachments
+      cover_image_url:
+        type: string
+        x-go-name: CoverImageURL
+      description:
+        type: string
+        x-go-name: Description
+      detail_image_url:
+        type: string
+        x-go-name: DetailImageURL
+      logo_url:
+        type: string
+        x-go-name: LogoURL
+      segments:
+        type: array
+        items:
+          $ref: '#/definitions/ContentSegment'
+        x-go-name: Segments
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  ProductItem:
+    type: object
+    properties:
+      country:
+        type: string
+        x-go-name: Country
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreateAt
+      currency:
+        type: string
+        x-go-name: Currency
+      details:
+        $ref: '#/definitions/ProductContent'
+      id:
+        type: integer
+        format: uint64
+        x-go-name: ID
+      insurer:
+        type: string
+        x-go-name: Insurer
+      insurer_code:
+        type: string
+        x-go-name: InsurerCode
+      loc:
+        type: string
+        x-go-name: Loc
+      name:
+        type: string
+        x-go-name: Name
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      product_type:
+        type: string
+        x-go-name: ProductType
+      project_key:
+        type: string
+        x-go-name: ProjectKey
+      updated_at:
+        type: integer
+        format: int64
+        x-go-name: UpdateAt
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  QuotationItem:
+    type: object
+    properties:
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreateAt
+      external_id:
+        type: string
+        x-go-name: ExternalID
+      id:
+        type: string
+        x-go-name: ID
+      insured_amount:
+        type: string
+        x-go-name: InsuredAmount
+      origin_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginID
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      premium_amount:
+        type: string
+        x-go-name: PremiumAmount
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      state:
+        type: string
+        x-go-name: State
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  QuotationShareInfoResponse:
+    type: object
+    properties:
+      Plan:
+        $ref: '#/definitions/TurboPlan'
+      Product:
+        $ref: '#/definitions/TurboProduct'
+      discount:
+        type: object
+        x-go-name: Discount
+      expire_time:
+        type: integer
+        format: int64
+        x-go-name: ExpireTime
+      fast_quote:
+        type: object
+        x-go-name: FastQuote
+      meta:
+        type: object
+        x-go-name: Meta
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      share_id:
+        type: string
+        x-go-name: ShareID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/httpsrv
+  QuotationShareResponse:
+    type: object
+    properties:
+      share_id:
+        type: string
+        x-go-name: ShareID
+      url:
+        type: string
+        x-go-name: URL
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/httpsrv
+  QuotePremiumResponse:
+    type: object
+    properties:
+      premium_info:
+        $ref: '#/definitions/PremiumInfo'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  ReleaseProductReq:
+    type: object
+    properties:
+      data:
+        type: object
+        x-go-name: Data
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  ReleaseProductRes:
+    type: object
+    properties:
+      result:
+        type: string
+        x-go-name: Result
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  SameSite:
+    description: See https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00 for details.
+    type: integer
+    format: int64
+    title: |-
+      SameSite allows a server to define a cookie attribute making it impossible for
+      the browser to send this cookie along with cross-site requests. The main
+      goal is to mitigate the risk of cross-origin information leakage, and provide
+      some protection against cross-site request forgery attacks.
+    x-go-package: net/http
+  ShareObj:
+    type: object
+    properties:
+      discount:
+        type: object
+        x-go-name: Discount
+      expire_time:
+        type: integer
+        format: int64
+        x-go-name: ExpireTime
+      fast_quote:
+        type: object
+        x-go-name: FastQuote
+      meta:
+        type: object
+        x-go-name: Meta
+      plan_key:
+        type: string
+        x-go-name: PlanKey
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      share_id:
+        type: string
+        x-go-name: ShareID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/core/val
+  SumInsuredType:
+    type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  TextDescription:
+    type: object
+    properties:
+      description:
+        type: string
+        x-go-name: Description
+      icon:
+        type: string
+        x-go-name: Icon
+      supplementary:
+        type: string
+        x-go-name: Supplementary
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  ToDeductGatewayRes:
+    type: object
+    properties:
+      cookie:
+        $ref: '#/definitions/Cookie'
+      deduction_auth_id:
+        type: string
+        x-go-name: DeductionAuthID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  TransactionInput:
+    type: object
+    required:
+      - service
+      - user_id
+      - service_txn_id
+      - title
+      - description
+      - amount
+      - currency
+      - item_info
+      - notify_url
+    properties:
+      amount:
+        description: payment amount
+        type: string
+        minimum: 0
+        x-go-name: Amount
+      currency:
+        description: currency unit
+        type: string
+        x-go-name: Currency
+      customer_service:
+        $ref: '#/definitions/CustomerService'
+      description:
+        description: transaction description, can be a multilines text
+        type: string
+        x-go-name: Description
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      item_info:
+        description: item details info, use for payment
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/ItemInfoInput'
+        x-go-name: ItemInfo
+      locale:
+        type: string
+        x-go-name: Locale
+        example: zh-CN
+      merchant_name:
+        description: merchant name for display
+        type: string
+        x-go-name: MerchantName
+      notify_url:
+        description: callback url for service backend to receive payment notification
+        type: string
+        x-go-name: NotifyURL
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      prefer_providers:
+        description: perfered providers, will be displayed in front of providers list
+        type: array
+        items:
+          type: string
+        x-go-name: PreferProviders
+      provider_data:
+        description: |-
+          specify provider info
+          for example
+          adyen: company name & account name
+          etiqa: takaful
+        type: object
+        x-go-name: ProviderData
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      service_txn_id:
+        description: |-
+          ServiceTxnID is transaction in service.
+
+          there is at most one pending or succeed transaction for each ServiceTxnID in one service
+        type: string
+        x-go-name: ServiceTxnID
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      title:
+        description: transaction title, one line text
+        type: string
+        x-go-name: Title
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/factory
+  TransactionNoti:
+    type: object
+    properties:
+      failed_msg:
+        description: failed message when state == failed
+        type: string
+        x-go-name: FailedMsg
+      pay_action:
+        $ref: '#/definitions/PayAction'
+      provider_returned:
+        description: provider return extra data
+        type: object
+        x-go-name: ProviderReturned
+      refund_for:
+        description: source transaction id which refunded
+        type: string
+        x-go-name: RefundFor
+      service_txn_id:
+        description: |-
+          ServiceTxnID is transaction in service.
+
+          there is at most one pending or succeed transaction for each ServiceTxnID in one service
+        type: string
+        x-go-name: ServiceTxnID
+      state:
+        description: transaction state
+        type: string
+        enum:
+          - created
+          - pending
+          - succeed
+          - failed
+          - canceled
+          - timeout
+        x-go-name: State
+      transaction_id:
+        description: Transaction id
+        type: string
+        x-go-name: TransactionID
+      used_provider:
+        description: actually used provider
+        type: string
+        x-go-name: UsedProvider
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  TransactionView:
+    type: object
+    properties:
+      amount:
+        description: payment amount
+        type: string
+        x-go-name: Amount
+      created_at:
+        description: timestamp in milliseconds at transaction created
+        type: integer
+        format: int64
+        x-go-name: CreatedAt
+      currency:
+        description: currency unit
+        type: string
+        x-go-name: Currency
+      customer_service:
+        $ref: '#/definitions/CustomerService'
+      description:
+        description: transaction description, can be a multilines text
+        type: string
+        x-go-name: Description
+      display_logo:
+        type: boolean
+        x-go-name: DisplayLogo
+      failed_msg:
+        description: failed message when state == failed
+        type: string
+        x-go-name: FailedMsg
+      failed_redirect_url:
+        description: callback url for service frontend when payment failed
+        type: string
+        x-go-name: FailedRedirectURL
+      item_info:
+        description: item details info, use for payment
+        type: array
+        items:
+          $ref: '#/definitions/ItemInfoView'
+        x-go-name: ItemInfo
+      pending_at:
+        description: timestamp in milliseconds at transaction start pending
+        type: integer
+        format: int64
+        x-go-name: PendingAt
+      pending_redirect_url:
+        description: callback url for service frontend when payment in pending
+        type: string
+        x-go-name: PendingRedirectURL
+      provider_data:
+        description: provider data
+        type: object
+        x-go-name: ProviderData
+      providers:
+        description: available providers, should be displayed in this order
+        type: array
+        items:
+          type: string
+        x-go-name: Providers
+      service:
+        description: service name
+        type: string
+        x-go-name: Service
+      service_txn_id:
+        description: |-
+          ServiceTxnID is transaction in service.
+
+          there is at most one pending or succeed transaction for each ServiceTxnID in one service
+        type: string
+        x-go-name: ServiceTxnID
+      state:
+        description: transaction state
+        type: string
+        enum:
+          - created
+          - pending
+          - succeed
+          - failed
+        x-go-name: State
+      succeed_redirect_url:
+        description: callback url for service frontend when payment succeed
+        type: string
+        x-go-name: SucceedRedirectURL
+      title:
+        description: transaction title, one line text
+        type: string
+        x-go-name: Title
+      transaction_id:
+        description: Transaction id
+        type: string
+        x-go-name: TransactionID
+      used_provider:
+        description: actually used provider
+        type: string
+        x-go-name: UsedProvider
+      user_id:
+        description: service's user id, should be unique for this service
+        type: string
+        x-go-name: UserID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  TriggerFlowReqBody:
+    type: object
+    properties:
+      action:
+        type: string
+        x-go-name: Action
+      form:
+        description: form data for trigger action
+        type: object
+        x-go-name: Form
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  TriggerFlowRes:
+    type: object
+    properties:
+      msg:
+        type: string
+        x-go-name: Msg
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  TurboApplication:
+    $ref: '#/definitions/ApplicationItem'
+  TurboFastQuoteMetaResponse:
+    type: object
+    properties:
+      base_premium:
+        type: number
+        format: double
+        x-go-name: BasePremium
+      premium_info:
+        $ref: '#/definitions/PremiumInfo'
+      sum_insured:
+        type: number
+        format: double
+        x-go-name: SumInsured
+      total_premium:
+        type: number
+        format: double
+        x-go-name: TotalPremium
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/b2c/id/motor/dto
+  TurboFastQuoteRequestParams:
+    type: object
+    properties:
+      add_on:
+        type: array
+        items:
+          $ref: '#/definitions/AddON'
+        x-go-name: AddON
+      agent_code:
+        type: string
+        x-go-name: AgentCode
+      id_number:
+        type: string
+        x-go-name: IDNumber
+      id_type:
+        type: string
+        x-go-name: IDType
+      post_code:
+        type: string
+        x-go-name: PostCode
+      product_code:
+        type: string
+        x-go-name: ProductCode
+      product_key:
+        type: string
+        x-go-name: ProductKey
+      qid:
+        type: integer
+        format: int64
+        x-go-name: QID
+      quote_type:
+        type: string
+        x-go-name: QuoteType
+      sum_insured:
+        type: number
+        format: double
+        x-go-name: SumInsured
+      sum_insured_type:
+        $ref: '#/definitions/SumInsuredType'
+      vehicle_registration_number:
+        type: string
+        x-go-name: VehicleRegistrationNumber
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  TurboFastQuoteResult:
+    $ref: '#/definitions/PlanFastQuoteRes'
+  TurboPlan:
+    $ref: '#/definitions/PlanItem'
+  TurboPolicy:
+    $ref: '#/definitions/PolicyListItem'
+  TurboProduct:
+    $ref: '#/definitions/ProductItem'
+  URLDescription:
+    type: object
+    properties:
+      description:
+        type: string
+        x-go-name: Description
+      icon:
+        type: string
+        x-go-name: Icon
+      url:
+        type: string
+        x-go-name: URL
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/modules/config/release
+  UnderWritingItem:
+    type: object
+    properties:
+      created_at:
+        type: integer
+        format: int64
+        x-go-name: CreatedAt
+      flow_id:
+        type: string
+        x-go-name: FlowID
+      id:
+        type: string
+        x-go-name: ID
+      origin_id:
+        type: integer
+        format: uint64
+        x-go-name: OriginID
+      result:
+        type: object
+        x-go-name: Result
+      state:
+        type: string
+        x-go-name: State
+      updated_at:
+        type: integer
+        format: int64
+        x-go-name: UpdatedAt
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/defs/mydto
+  UnderWritingOutput:
+    type: object
+    properties:
+      UnderwritingConclusion:
+        type: boolean
+    $ref: '#/definitions/UnderWritingOutput'
+  UpdateApplicationReqBody:
+    type: object
+    properties:
+      application:
+        description: json raw message for application
+        type: object
+        x-go-name: Application
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  UpdateApplicationRes:
+    type: object
+    properties:
+      state:
+        type: string
+        x-go-name: State
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  UpdateDeductionAuthRes:
+    type: object
+    properties:
+      deduction_auth:
+        $ref: '#/definitions/DeductionAuthView'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  UpdatePayoutAccountRes:
+    type: object
+    properties:
+      account:
+        $ref: '#/definitions/PayoutAccount'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/integpay/gateway/proto
+  UpdateQuotationReqBody:
+    type: object
+    properties:
+      fast_quote:
+        description: json raw message for fast quote
+        type: object
+        x-go-name: FastQuote
+      quotation_id:
+        type: integer
+        format: int64
+        x-go-name: QuotationID
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  UpdateQuotationRes:
+    $ref: '#/definitions/QuotationItem'
+  UploadFieldsConfigReqBody:
+    type: object
+    required:
+      - config
+    properties:
+      config:
+        $ref: '#/definitions/ExternalConfigAPIUnit'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  UploadFieldsConfigRes:
+    type: object
+    properties:
+      messages:
+        type: string
+        x-go-name: Messages
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_turbo/executor/pkg/dto
+  UploadModelExcelFileReq:
+    type: object
+    properties:
+      Category:
+        $ref: '#/definitions/VehicleCategory'
+      File:
+        $ref: '#/definitions/FileHeader'
+      PriceMode:
+        type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  UploadModelExcelFileRequest:
+    type: object
+    properties:
+      File:
+        $ref: '#/definitions/FileHeader'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/dto
+  VehicleCategory:
+    type: string
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/internal/entity
+  VehicleInfo:
+    type: object
+    properties:
+      make:
+        type: string
+        x-go-name: Make
+      maxValue:
+        type: string
+        x-go-name: MaxValue
+      minValue:
+        type: string
+        x-go-name: MinValue
+      model:
+        type: string
+        x-go-name: Model
+      series:
+        type: string
+        x-go-name: Series
+      vehicle_registration_number:
+        type: string
+        x-go-name: VehicleRegistrationNumber
+      yearMake:
+        type: string
+        x-go-name: YearMake
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/my/motor/dto
+  VehiclePrice:
+    type: object
+    properties:
+      price:
+        $ref: '#/definitions/Decimal'
+      year:
+        type: integer
+        format: int64
+        x-go-name: Year
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/internal/entity
+  VehiclePrices:
+    type: array
+    items:
+      $ref: '#/definitions/VehiclePrice'
+    x-go-package: gitlab.iglooinsure.com/axinan/backend/insur_shaft/product/ips/id/motor/internal/entity
+parameters:
+  app_id:
+    type: number
+    description: app id
+    name: app_id
+    in: path
+    required: true
+  lang:
+    type: string
+    name: lang
+    in: query
+  plan_key:
+    type: string
+    description: plan key
+    name: plan_key
+    in: path
+    required: true
+  product_key:
+    type: string
+    description: product key
+    name: product_key
+    in: path
+    required: true
+  product_type:
+    type: string
+    name: product_type
+    in: path
+    required: true
+  project:
+    type: string
+    name: project
+    in: path
+    required: true
+  region:
+    type: string
+    name: region
+    in: path
+    required: true
+host: localhost:8080
+info:
+  description: Your description
+  title: transit-mall-my API
+  version: 1.0.0
+paths:
+  /v1/shaft/public/class/{project}/{region}/{product_type}/products/{product_key}/plans/{plan_key}/quotation:
+    post:
+      summary: create quotation
+      operationId: CreateQuotation
+      parameters:
+        - $ref: '#/parameters/project'
+        - $ref: '#/parameters/region'
+        - $ref: '#/parameters/product_type'
+        - $ref: '#/parameters/product_key'
+        - $ref: '#/parameters/plan_key'
+#        - description: quotation form
+#          name: quotation
+#          in: body
+#          required: true
+#          schema:
+#            type: object
+#            required:
+#              - fast_quote
+#            properties:
+#              fast_quote:
+#                description: fast_quote object
+#                type: object
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/QuotationItem'
+  /v1/transit-mall-my/public/car/info:
+    get:
+      operationId: GetCarInfo
+      parameters:
+      - in: query
+        name: vehicle_plate_number
+        required: true
+        type: string
+        x-go-name: VehiclePlateNumber
+      - in: query
+        name: nric
+        required: true
+        type: string
+        x-go-name: Nric
+      - in: query
+        name: post_code
+        required: true
+        type: string
+        x-go-name: PostCode
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/GetCarInfoRes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        "404":
+          description: Not found
+          schema:
+            $ref: '#/definitions/ErrorNotFound'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/ErrorConflict'
+        "429":
+          description: Too Many Requests
+          schema:
+            $ref: '#/definitions/ErrorTooManyRequests'
+        "500":
+          description: Server Errors
+          schema:
+            $ref: '#/definitions/ErrorServerErrors'
+        default:
+          description: Unknown Error
+          schema:
+            $ref: '#/definitions/ErrorDefault'
+      tags:
+      - Public
+  /v1/transit-mall-my/public/submit/message:
+    post:
+      operationId: SubmitMessage
+      parameters:
+      - in: body
+        name: SubmitMessageReq
+        schema:
+          $ref: '#/definitions/SubmitMessageReq'
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/SubmitMessageRes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorBadRequest'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        "404":
+          description: Not found
+          schema:
+            $ref: '#/definitions/ErrorNotFound'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/ErrorConflict'
+        "429":
+          description: Too Many Requests
+          schema:
+            $ref: '#/definitions/ErrorTooManyRequests'
+        "500":
+          description: Server Errors
+          schema:
+            $ref: '#/definitions/ErrorServerErrors'
+        default:
+          description: Unknown Error
+          schema:
+            $ref: '#/definitions/ErrorDefault'
+      tags:
+      - Public
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- api_key: []
+securityDefinitions:
+  api_key:
+    in: header
+    name: X-Axinan-Authorization
+    type: apiKey
+swagger: "2.0"
